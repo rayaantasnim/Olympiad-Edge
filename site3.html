@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site 03: Core Web Development • Olympiad Edge</title>
+    
+    <meta name="description" content="Explore Site 03: Core Web Development. Master static, dynamic, and hybrid architectures, career tracks, frontend/backend merits, and download the core curriculum PDF.">
+    <meta name="keywords" content="Olympiad Edge, Core Web Development, Site 03, Static, Dynamic, Hybrid, Full Stack, Rayaan Tasnim">
+    <meta name="author" content="Rayaan Tasnim">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="Site 03: Core Web Development • Olympiad Edge">
+    <meta property="og:description" content="Master web architectures, 50 structured core milestones, and development toolkits with Site 03 of Olympiad Edge.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rayaantasnim.github.io/Rayaan-Tasnim/site3.html">
+    <meta property="og:image" content="Logo.jpg">
+
+    <link rel="icon" type="image/x-icon" href="Favicon.ico">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cosmicBg: '#070913',
+                        panelDark: '#0e1526',
+                        panelGlass: 'rgba(14, 21, 38, 0.85)',
+                        neonCyan: '#00f0ff',
+                        electricViolet: '#8a00ff',
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap');
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #070913;
+            color: #e2e8f0;
+            overflow-x: hidden;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            scroll-behavior: smooth;
+        }
+        .font-space {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(14, 21, 38, 0.78);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(0, 240, 255, 0.18);
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.7);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-panel:hover {
+            border-color: rgba(0, 240, 255, 0.45);
+            box-shadow: 0 20px 50px -15px rgba(0, 240, 255, 0.2);
+        }
+        .glow-text {
+            text-shadow: 0 0 30px rgba(0, 240, 255, 0.6);
+        }
+        .glow-button {
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.4);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glow-button:hover {
+            box-shadow: 0 0 50px rgba(0, 240, 255, 0.8), 0 0 25px rgba(138, 0, 255, 0.6);
+            transform: translateY(-2px);
+        }
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .reveal-section {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+            hyphens: auto;
+        }
+        .dock-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .dock-scroll::-webkit-scrollbar-track {
+            background: rgba(7, 9, 19, 0.5);
+        }
+        .dock-scroll::-webkit-scrollbar-thumb {
+            background: rgba(0, 240, 255, 0.3);
+            border-radius: 4px;
+        }
+        .dock-scroll::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 240, 255, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-cosmicBg text-slate-100 min-h-screen flex flex-col selection:bg-neonCyan selection:text-cosmicBg">
+
+    <div id="canvas-container"></div>
+
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-cyan-500/15">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <img src="Logo.jpg" alt="Olympiad Edge Logo" class="w-10 h-10 rounded-xl object-cover border border-cyan-400/50 shadow-md">
+                <a href="index.html" class="font-space font-bold text-lg sm:text-xl tracking-wide text-white flex items-center space-x-2">
+                    <span>OLYMPIAD <span class="text-neonCyan">EDGE</span></span>
+                </a>
+            </div>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm tracking-wide">
+                <a href="index.html" class="text-slate-300 hover:text-neonCyan transition-colors">Home</a>
+                <a href="syllabus.html" class="text-slate-300 hover:text-neonCyan transition-colors">Syllabus</a>
+                <div class="relative group">
+                    <button class="flex items-center space-x-1 text-neonCyan font-bold drop-shadow-[0_0_10px_rgba(0,240,255,0.6)] py-2 focus:outline-none">
+                        <span>Sites Grid</span>
+                        <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="absolute top-full left-[-160px] w-80 glass-panel rounded-2xl shadow-2xl py-3 mt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 max-h-[75vh] overflow-y-auto">
+                        <a href="site1.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 01: Programming Basics</a>
+                        <a href="site2.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 02: VS Code Configuration</a>
+                        <a href="site3.html" class="block px-5 py-2.5 text-xs text-neonCyan bg-cyan-500/10 font-bold border-b border-slate-800/85">Site 03: Core Web Development</a>
+                        <a href="site4.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 04: The Coding Community</a>
+                        <a href="site5.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 05: Git & GitHub Collaboration</a>
+                        <a href="site6.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 06: Competitive Programming Training</a>
+                        <a href="site7.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 07: AI Assistance for Developers</a>
+                        <a href="site8.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 08: Career Possibilities & Market Values</a>
+                        <a href="site9.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 09: Double-Helix Future</a>
+                        <a href="site10.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors">Site 10: Project Showroom & Capstone</a>
+                    </div>
+                </div>
+                <a href="documents.html" class="text-slate-300 hover:text-neonCyan transition-colors">Documents</a>
+                <a href="why.html" class="text-slate-300 hover:text-neonCyan transition-colors">Why</a>
+                <a href="faq.html" class="text-slate-300 hover:text-neonCyan transition-colors">FAQ</a>
+            </nav>
+
+            <!-- Mobile Menu Toggle Button -->
+            <div class="md:hidden flex items-center">
+                <button id="menu-btn" class="text-slate-300 hover:text-neonCyan focus:outline-none p-2.5 rounded-xl glass-panel border border-cyan-500/30 shadow-lg" aria-label="Toggle Navigation Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-t border-cyan-500/20 px-6 py-6 space-y-4 max-h-[75vh] overflow-y-auto shadow-2xl">
+            <a href="index.html" class="block text-slate-200 hover:text-neonCyan py-1.5 font-medium transition-colors">Home</a>
+            <a href="syllabus.html" class="block text-slate-200 hover:text-neonCyan py-1.5 font-medium transition-colors">Syllabus</a>
+            
+            <!-- Mobile Sites Grid Dropdown -->
+            <div>
+                <button id="mobile-sites-grid-btn" class="w-full flex items-center justify-between text-slate-200 hover:text-neonCyan py-1.5 font-medium transition-colors focus:outline-none">
+                    <span>Sites Grid</span>
+                    <svg class="w-4 h-4 transition-transform" id="mobile-sites-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="mobile-sites-dropdown" class="hidden pl-4 mt-2 space-y-2.5 border-l border-cyan-500/30">
+                    <a href="site1.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 01: Programming Basics</a>
+                    <a href="site2.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 02: VS Code Configuration</a>
+                    <a href="site3.html" class="block text-xs text-neonCyan font-bold">Site 03: Core Web Development</a>
+                    <a href="site4.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 04: The Coding Community</a>
+                    <a href="site5.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 05: Git & GitHub Collaboration</a>
+                    <a href="site6.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 06: Competitive Programming</a>
+                    <a href="site7.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 07: AI Assistance for Developers</a>
+                    <a href="site8.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 08: Career Possibilities & Market</a>
+                    <a href="site9.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 09: Double-Helix Future</a>
+                    <a href="site10.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 10: Capstone Project Showroom</a>
+                </div>
+            </div>
+
+            <a href="documents.html" class="block text-slate-200 hover:text-neonCyan py-1.5 font-medium transition-colors">Documents</a>
+            <a href="why.html" class="block text-slate-200 hover:text-neonCyan py-1.5 font-medium transition-colors">Why</a>
+            <a href="faq.html" class="block text-slate-200 hover:text-neonCyan py-1.5 font-medium transition-colors">FAQ</a>
+        </div>
+    </header>
+
+    <!-- Trigger Button for Left Indexing Navbar -->
+    <button id="dock-trigger" class="fixed left-0 top-36 z-50 bg-panelGlass border border-l-0 border-cyan-500/40 text-neonCyan px-2.5 py-3 rounded-r-xl shadow-2xl hover:bg-cyan-500/20 transition-all flex items-center space-x-1 focus:outline-none" aria-label="Toggle Milestones Dock">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
+        <span class="text-[10px] font-space font-bold uppercase tracking-widest [writing-mode:vertical-lr] rotate-180 select-none">Web Dev Index</span>
+    </button>
+
+    <!-- Collapsible Left-Hand Navigation Dock -->
+    <aside id="left-dock" class="fixed left-0 top-28 bottom-10 z-50 w-72 glass-panel border-r border-cyan-500/30 shadow-2xl transition-transform duration-300 transform -translate-x-full flex flex-col rounded-r-2xl">
+        <div class="p-4 border-b border-cyan-500/20 flex items-center justify-between bg-slate-950/60 rounded-tr-2xl">
+            <span class="font-space text-xs font-bold text-neonCyan uppercase tracking-wider">50 Web Dev Sections Dock</span>
+            <button id="dock-close" class="text-xs font-space font-semibold px-3 py-1.5 bg-gradient-to-r from-cyan-500/20 to-blue-600/20 text-neonCyan border border-cyan-500/40 rounded-lg shadow-md hover:bg-cyan-500/30 hover:border-neonCyan transition-all focus:outline-none flex items-center space-x-1">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                <span>Close</span>
+            </button>
+        </div>
+        <div id="dock-content" class="p-3 overflow-y-auto dock-scroll space-y-1 text-xs flex-grow">
+            <!-- Populated dynamically via JS -->
+        </div>
+    </aside>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full space-y-20">
+
+        <!-- Hero Section -->
+        <section id="hero" class="text-center space-y-6 reveal-section">
+            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full glass-panel border border-cyan-500/30 text-neonCyan text-xs sm:text-sm font-semibold tracking-wider uppercase mb-2">
+                <span class="w-2 h-2 rounded-full bg-neonCyan animate-ping"></span>
+                <span>Site 03 • Core Web Development Training & Ecosystem</span>
+            </div>
+            <h1 class="font-space text-4xl sm:text-6xl font-extrabold tracking-tight text-white glow-text">
+                Core Web Development & <span class="text-transparent bg-clip-text bg-gradient-to-r from-neonCyan to-electricViolet">Architectures</span>
+            </h1>
+            <p class="max-w-3xl mx-auto text-base sm:text-lg text-slate-300 justified-text">
+                Welcome newcomer! This guide trains your foundational mindset on <span class="text-neonCyan font-semibold">static, dynamic, and hybrid web architectures, frontend/backend merits, demerits, and client pricing models</span> derived directly from the official Web Development Core Topics ecosystem[cite: 2].
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 pt-4">
+                <a href="#milestones-container" class="px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-cosmicBg font-space font-bold glow-button text-sm tracking-wider uppercase">
+                    Explore 50 Sections
+                </a>
+                <a href="#pdf-download-section" class="px-8 py-4 rounded-xl glass-panel text-neonCyan font-space font-bold hover:bg-cyan-500/10 text-sm tracking-wider uppercase border border-cyan-500/30">
+                    Download Core PDF
+                </a>
+            </div>
+        </section>
+
+        <!-- 50 Structured Sections Grid -->
+        <section class="space-y-8 reveal-section">
+            <div class="border-b border-cyan-500/20 pb-4">
+                <h2 class="font-space text-2xl sm:text-3xl font-bold text-white flex items-center space-x-3">
+                    <span class="text-neonCyan">01.</span>
+                    <span>50 Structured Core Web Development Sections</span>
+                </h2>
+                <p class="text-sm text-slate-400 mt-1">Comprehensive modules covering web types, career possibilities, facilities, merits, demerits, and client pricing logic in English.</p>
+            </div>
+
+            <div id="milestones-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Dynamically injected 50 unique sections via JS -->
+            </div>
+        </section>
+
+        <!-- Final PDF Download Section -->
+        <section id="pdf-download-section" class="space-y-8 reveal-section">
+            <div class="border-b border-cyan-500/20 pb-4">
+                <h2 class="font-space text-2xl sm:text-3xl font-bold text-white flex items-center space-x-3">
+                    <span class="text-neonCyan">02.</span>
+                    <span>Official Curriculum Document Download</span>
+                </h2>
+                <p class="text-sm text-slate-400 mt-1">Access the complete reference guide directly from the root repository folder[cite: 2].</p>
+            </div>
+
+            <div class="glass-panel p-8 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 border border-cyan-500/40">
+                <div class="space-y-2 text-center md:text-left">
+                    <span class="text-xs font-mono px-3 py-1 rounded-full bg-cyan-500/10 text-neonCyan border border-cyan-500/30">Root Folder Document</span>
+                    <h3 class="font-space text-2xl font-bold text-white">Web Development Core Topics.pdf</h3>
+                    <p class="text-sm text-slate-300 max-w-xl justified-text">
+                        Download the comprehensive reference manual covering definitions, architecture blueprints, full stack variations, pricing breakdowns, and pros/cons[cite: 2].
+                    </p>
+                </div>
+                <div>
+                    <a href="Web Development Core Topics.pdf" download class="px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-cosmicBg font-space font-bold glow-button text-sm tracking-wider uppercase inline-flex items-center space-x-2">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                        <span>Download PDF</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Upgraded Premium Footer -->
+    <footer class="glass-panel border-t border-cyan-500/20 py-12 mt-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-t from-cyan-950/20 to-transparent pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col space-y-8">
+            <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+                <div class="flex items-center space-x-3">
+                    <img src="Logo.jpg" alt="Olympiad Edge Logo" class="w-10 h-10 rounded-xl object-cover border border-cyan-400/50 shadow-md">
+                    <span class="font-space font-bold text-white tracking-wide">OLYMPIAD <span class="text-neonCyan">EDGE</span></span>
+                </div>
+                <div class="flex items-center space-x-6 text-sm text-slate-300">
+                    <a href="index.html" class="hover:text-neonCyan transition-colors">Home</a>
+                    <a href="syllabus.html" class="hover:text-neonCyan transition-colors">Syllabus</a>
+                    <a href="documents.html" class="hover:text-neonCyan transition-colors">Documents</a>
+                    <a href="why.html" class="hover:text-neonCyan transition-colors">Why</a>
+                    <a href="faq.html" class="hover:text-neonCyan transition-colors">FAQ</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="https://github.com/rayaantasnim" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl glass-panel border border-cyan-500/30 flex items-center justify-center text-slate-300 hover:text-neonCyan hover:border-neonCyan transition-all shadow-lg" aria-label="GitHub">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl glass-panel border border-cyan-500/30 flex items-center justify-center text-slate-300 hover:text-neonCyan hover:border-neonCyan transition-all shadow-lg" aria-label="LinkedIn">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-cyan-500/25 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 space-y-4 sm:space-y-0">
+                <p>&copy; 2026 Olympiad Edge. All rights reserved[cite: 1].</p>
+                <div class="flex items-center space-x-2">
+                    <span>Prepared by</span>
+                    <a href="https://rayaantasnim.github.io/Rayaan-Tasnim/" target="_blank" rel="noopener noreferrer" class="font-space font-bold text-neonCyan hover:underline drop-shadow-[0_0_8px_rgba(0,240,255,0.5)]">Rayaan Tasnim[cite: 1]</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Three.js Background Animation Script -->
+    <script>
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        container.appendChild(renderer.domElement);
+
+        const particleCount = 700;
+        const geometry = new THREE.BufferGeometry();
+        const positions = new Float32Array(particleCount * 3);
+
+        for(let i = 0; i < particleCount * 3; i += 3) {
+            positions[i] = (Math.random() - 0.5) * 50;
+            positions[i+1] = (Math.random() - 0.5) * 50;
+            positions[i+2] = (Math.random() - 0.5) * 50;
+        }
+
+        geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        const material = new THREE.PointsMaterial({
+            size: 0.08,
+            color: 0x00f0ff,
+            transparent: true,
+            opacity: 0.7
+        });
+
+        const particles = new THREE.Points(geometry, material);
+        scene.add(particles);
+
+        camera.position.z = 15;
+
+        let mouseX = 0, mouseY = 0;
+        document.addEventListener('mousemove', (e) => {
+            mouseX = (e.clientX - window.innerWidth / 2) * 0.0005;
+            mouseY = (e.clientY - window.innerHeight / 2) * 0.0005;
+        });
+
+        function animate() {
+            requestAnimationFrame(animate);
+            particles.rotation.x += 0.0005 + mouseY * 0.1;
+            particles.rotation.y += 0.0008 + mouseX * 0.1;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+
+    <!-- GSAP Scroll Animations -->
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.utils.toArray('.reveal-section').forEach((section) => {
+            gsap.to(section, {
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top 85%',
+                    toggleActions: 'play none none none'
+                },
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: 'power3.out'
+            });
+        });
+    </script>
+
+    <!-- Mobile Menu Toggle Script & Sites Grid Dropdown -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        const mobileSitesGridBtn = document.getElementById('mobile-sites-grid-btn');
+        const mobileSitesDropdown = document.getElementById('mobile-sites-dropdown');
+        const mobileSitesArrow = document.getElementById('mobile-sites-arrow');
+
+        mobileSitesGridBtn.addEventListener('click', () => {
+            mobileSitesDropdown.classList.toggle('hidden');
+            mobileSitesArrow.classList.toggle('rotate-180');
+        });
+    </script>
+
+    <!-- Generator for 50 Structured Core Web Development Sections -->
+    <script>
+        const webDevSections = [
+            {
+                title: "Definition of Web Development",
+                category: "Foundations",
+                description: "Web development is the comprehensive technical process of building, designing, and maintaining websites or web applications to be hosted on the internet[cite: 2].",
+                details: "Encompasses all tasks required to make a website functional, dynamic, and accessible across devices[cite: 2]."
+            },
+            {
+                title: "The Digital House Analogy",
+                category: "Foundations",
+                description: "Web development is like building a digital house consisting of front-end exterior, back-end structural plumbing, and full-stack architecture[cite: 2].",
+                details: "Visualizes how client-side design and server-side logic integrate into a unified digital structure[cite: 2]."
+            },
+            {
+                title: "Natural Languages vs Programming Languages",
+                category: "Language Types",
+                description: "Natural languages (Bangla, English) handle human speech channels, while programming languages (Python, JS) execute machine instruction sets[cite: 2].",
+                details: "Essential distinction in communication protocols between human intellect and digital processors[cite: 2]."
+            },
+            {
+                title: "Front-End Core Overview",
+                category: "Front-End",
+                description: "The visual user-facing development layer built using HTML, CSS, JavaScript, and React[cite: 2].",
+                details: "Focuses on client-side interactions and pixel-perfect aesthetic design[cite: 2]."
+            },
+            {
+                title: "Back-End Core Overview",
+                category: "Back-End",
+                description: "Server-side engine logic managed using Python, Node.js, PHP, and SQL databases[cite: 2].",
+                details: "Handles secure data processing, authentication, and database administration[cite: 2]."
+            },
+            {
+                title: "Full Stack Core Overview",
+                category: "Full Stack",
+                description: "Combined orchestration of both front-end and back-end systems by a versatile developer[cite: 2].",
+                details: "Empowers complete end-to-end product delivery from UI design to database hosting[cite: 2]."
+            },
+            {
+                title: "High-Level vs Low-Level Programming",
+                category: "Programming Levels",
+                description: "High-level programming utilizes human-readable languages like Java, Python, and C++; low-level configuration uses Assembly and Machine Code[cite: 2].",
+                details: "Balances developer productivity against raw execution optimization[cite: 2]."
+            },
+            {
+                title: "Static Web Development Definition",
+                category: "Static Architecture",
+                description: "Static websites store pre-written files on a server and deliver them directly to the client's browser without real-time database calculation[cite: 2].",
+                details: "Delivers unmatched speed, simplicity, and rock-solid security[cite: 2]."
+            },
+            {
+                title: "HTML/CSS/JS Static Sites",
+                category: "Static Architecture",
+                description: "Basic websites built using raw markup, styling, and standard client-side scripting[cite: 2].",
+                details: "Ideal for portfolios, simple CVs, and informational landing pages[cite: 2]."
+            },
+            {
+                title: "Static Site Generators (SSGs)",
+                category: "Static Architecture",
+                description: "Software tools like Jekyll, Hugo, and Gatsby that compile raw data and templates into flat pre-built HTML files ahead of time[cite: 2].",
+                details: "Streamlines documentation publishing and high-performance blog deployment[cite: 2]."
+            },
+            {
+                title: "Landing & Documentation Pages",
+                category: "Static Architecture",
+                description: "Informational portals and developer documentation hubs that rarely change content based on user identity[cite: 2].",
+                details: "Benefits from instant content delivery network (CDN) caching[cite: 2]."
+            },
+            {
+                title: "Jamstack Architecture",
+                category: "Static Architecture",
+                description: "A modern engineering approach based on client-side JavaScript, reusable APIs, and pre-rendered Markup[cite: 2].",
+                details: "Modernizes static delivery with dynamic API microservices[cite: 2]."
+            },
+            {
+                title: "Static Architecture Merits & Security Profile",
+                category: "Static Architecture",
+                description: "Extremely low security risk profile because there is no database or server-side logic to hack[cite: 2].",
+                details: "Hosting costs range from $0 to $5/month with ultra-fast page loading speeds[cite: 2]."
+            },
+            {
+                title: "Dynamic Web Development Definition",
+                category: "Dynamic Architecture",
+                description: "Dynamic websites generate content in real-time by querying databases and processing business logic on every request[cite: 2].",
+                details: "Customizes web output specifically for each unique user session[cite: 2]."
+            },
+            {
+                title: "Content Management Systems (CMS)",
+                category: "Dynamic Architecture",
+                description: "Platforms like WordPress, Drupal, and Ghost allowing non-technical users to update databases dynamically[cite: 2].",
+                details: "Empowers blogging and enterprise content publishing without writing code[cite: 2]."
+            },
+            {
+                title: "Single Page Applications (SPAs)",
+                category: "Dynamic Architecture",
+                description: "Applications like React, Angular, and Vue.js that load a single HTML shell and dynamically rewrite screens via JavaScript[cite: 2].",
+                details: "Provides app-like fluid navigation without full browser page reloads[cite: 2]."
+            },
+            {
+                title: "Server-Side Rendered (SSR) Systems",
+                category: "Dynamic Architecture",
+                description: "Traditional architectures like Laravel (PHP) or Django (Python) that assemble unique HTML on every click[cite: 2].",
+                details: "Ensures strong initial page load SEO and robust server-side validation[cite: 2]."
+            },
+            {
+                title: "E-Commerce Platforms",
+                category: "Dynamic Architecture",
+                description: "Transactional platforms tracking shopping carts, active inventories, payment systems, and user profiles[cite: 2].",
+                details: "Requires active database connections and secure payment gateway integrations[cite: 2]."
+            },
+            {
+                title: "Dynamic Architecture Costs & Risks",
+                category: "Dynamic Architecture",
+                description: "Monthly hosting ranges from $15 to $100+/month with higher security risk profiles vulnerable to database injections[cite: 2].",
+                details: "Moderate to slow page loading speeds due to real-time server computation[cite: 2]."
+            },
+            {
+                title: "Hybrid Web Development Definition",
+                category: "Hybrid Architecture",
+                description: "Blends lightning-fast static speed with rich dynamic computing capabilities by analyzing route rendering efficiency[cite: 2].",
+                details: "Optimizes performance by determining whether to pre-render or server-render each route[cite: 2]."
+            },
+            {
+                title: "Universal / Isomorphic Frameworks",
+                category: "Hybrid Architecture",
+                description: "Meta-frameworks like Next.js (React) and Nuxt.js (Vue) capable of running code on both server and client[cite: 2].",
+                details: "Bridges static generation and server-side rendering seamlessly[cite: 2]."
+            },
+            {
+                title: "Incremental Static Regeneration (ISR)",
+                category: "Hybrid Architecture",
+                description: "An elite hybrid subtype deploying static pages that automatically update in the background when database content changes[cite: 2].",
+                details: "Eliminates full site rebuilds while maintaining instant static delivery[cite: 2]."
+            },
+            {
+                title: "Progressive Web Applications (PWAs)",
+                category: "Hybrid Architecture",
+                description: "Web apps leveraging Service Workers to behave like local desktop or mobile apps, running offline[cite: 2].",
+                details: "Enhances user retention and mobile engagement without app store friction[cite: 2]."
+            },
+            {
+                title: "Micro-Frontends Architecture",
+                category: "Hybrid Architecture",
+                description: "An architectural style chopping massive web apps into independent frontend modules composed at runtime[cite: 2].",
+                details: "Allows large distributed engineering teams to deploy features independently[cite: 2]."
+            },
+            {
+                title: "Architecture Comparison Summary",
+                category: "Architectures",
+                description: "Comparative matrix evaluating Static, Dynamic, and Hybrid systems across speed, security, hosting cost, and use cases[cite: 2].",
+                details: "Guides developers in selecting the optimal technology stack for enterprise projects[cite: 2]."
+            },
+            {
+                title: "Client Pricing: Static Websites ($500 - $2,500+)",
+                category: "Client Pricing",
+                description: "Priced based on front-end design, semantic layout, copywriting, and rapid deployment without backend database coding[cite: 2].",
+                details: "Enables fast visual delivery using tools like Vite or Jekyll[cite: 2]."
+            },
+            {
+                title: "Client Pricing: Dynamic Apps ($3,000 - $15,000+)",
+                category: "Client Pricing",
+                description: "Reflects invisible engine costs including architectural security, user authentication, and database design[cite: 2].",
+                details: "Requires rigorous testing to protect user data and handle high transaction loads[cite: 2]."
+            },
+            {
+                title: "Client Pricing: Hybrid Apps ($6,000 - $30,000+)",
+                category: "Client Pricing",
+                description: "Premium enterprise pricing delivering maximum speed and dynamic data via modern stacks like Next.js[cite: 2].",
+                details: "Lowers server hosting bills while maximizing Google search ranking SEO scores[cite: 2]."
+            },
+            {
+                title: "Front-End Merit: High-Demand Future",
+                category: "Front-End Merits",
+                description: "Even with AI advancements, exceptional UI/UX experience remains critical, ensuring sustainable career growth[cite: 2].",
+                details: "Front-end engineering continues to evolve with advanced component libraries[cite: 2]."
+            },
+            {
+                title: "Front-End Merit: Premium Pricing",
+                category: "Front-End Merits",
+                description: "Skilled front-end professionals can charge premium rates for crafting complex, highly interactive user interfaces[cite: 2].",
+                details: "High visual impact directly translates into high commercial value[cite: 2]."
+            },
+            {
+                title: "Front-End Merit: Visual Gratification",
+                category: "Front-End Merits",
+                description: "Developers witness immediate visual feedback in the browser, making coding and debugging engaging[cite: 2].",
+                details: "Provides instant gratification and fast iteration cycles during styling[cite: 2]."
+            },
+            {
+                title: "Front-End Demerit: Complex Client Issues",
+                category: "Front-End Demerits",
+                description: "Non-technical clients struggle to articulate exact requirements, leading to scope shifts and extended timelines[cite: 2].",
+                details: "Requires proactive communication and wireframe sign-offs to manage expectations[cite: 2]."
+            },
+            {
+                title: "Front-End Demerit: Subjective Criticism",
+                category: "Front-End Demerits",
+                description: "Because front-end is fully visible, clients easily criticize visual fonts or colors without understanding underlying code[cite: 2].",
+                details: "Demands patience and design justification during client review sessions[cite: 2]."
+            },
+            {
+                title: "Front-End Demerit: Device Compatibility",
+                category: "Front-End Demerits",
+                description: "Ensuring cross-browser compatibility and responsive layouts across hundreds of screen sizes requires repetitive testing[cite: 2].",
+                details: "Mitigated by robust CSS Grid, Flexbox, and Tailwind utility frameworks[cite: 1, 2]."
+            },
+            {
+                title: "Back-End Merit: Core Business Logic",
+                category: "Back-End Merits",
+                description: "Controls primary operations and data processing, serving as the actual functional engine of any website[cite: 2].",
+                details: "Powers complex calculations and automated backend workflows[cite: 2]."
+            },
+            {
+                title: "Back-End Merit: High-Level Security",
+                category: "Back-End Merits",
+                description: "Ensures crucial security measures like preventing cyber attacks, data encryption, and secure authentication[cite: 2].",
+                details: "Protects sensitive user records and enterprise intellectual property[cite: 2]."
+            },
+            {
+                title: "Back-End Merit: Database Management",
+                category: "Back-End Merits",
+                description: "Enables efficient organization, retrieval, manipulation, and storage of massive application data[cite: 2].",
+                details: "Optimizes query performance and relational data integrity[cite: 2]."
+            },
+            {
+                title: "Back-End Merit: Career Stability",
+                category: "Back-End Merits",
+                description: "Core back-end architectures change less frequently than frontend UI tools, offering long-term career stability[cite: 2].",
+                details: "Commands high retention and premium salary packages in enterprise tech[cite: 2]."
+            },
+            {
+                title: "Back-End Demerit: Invisible Labor",
+                category: "Back-End Demerits",
+                description: "Because coding happens behind the scenes, non-technical clients rarely appreciate the heavy engineering effort[cite: 2].",
+                details: "Requires translating technical backend milestones into clear business value metrics[cite: 2]."
+            },
+            {
+                title: "Back-End Demerit: Steep Learning Curve",
+                category: "Back-End Demerits",
+                description: "Mastering database systems, server configurations, and security protocols takes longer and is harder[cite: 2].",
+                details: "Demands rigorous study of networking protocols and asynchronous computing[cite: 2]."
+            },
+            {
+                title: "Back-End Demerit: Complex Debugging",
+                category: "Back-End Demerits",
+                description: "System errors are not visually displayed on screens, requiring developers to scan server logs[cite: 2].",
+                details: "Demands advanced terminal diagnostic skills and error-monitoring tools[cite: 2]."
+            },
+            {
+                title: "Full Stack Merit: Versatile Expertise",
+                category: "Full Stack Merits",
+                description: "Proficiency in both frontend and backend development allows managing entire projects from start to finish[cite: 2].",
+                details: "Unlocks independent solo entrepreneurship and comprehensive product ownership[cite: 2]."
+            },
+            {
+                title: "Full Stack Merit: Cost-Effective for Business",
+                category: "Full Stack Merits",
+                description: "Highly economical for startups, reducing the need to hire separate frontend and backend specialists[cite: 2].",
+                details: "Streamlines early-stage MVP development and resource allocation[cite: 2]."
+            },
+            {
+                title: "Full Stack Merit: Seamless Coordination",
+                category: "Full Stack Merits",
+                description: "Eliminates communication gaps and integration errors between client-side and server-side teams[cite: 2].",
+                details: "Accelerates feature deployment velocity and architectural cohesion[cite: 2]."
+            },
+            {
+                title: "Full Stack Merit: High Market Demand",
+                category: "Full Stack Merits",
+                description: "Companies highly value multi-disciplinary knowledge, leading to vast job opportunities and fast promotions[cite: 2].",
+                details: "Provides exceptional career flexibility across freelance and corporate sectors[cite: 2]."
+            },
+            {
+                title: "Full Stack Demerit: Heavy Workload & Burnout",
+                category: "Full Stack Demerits",
+                description: "Managing pixel-perfect UI designs alongside complex backend server configurations simultaneously causes mental fatigue[cite: 2].",
+                details: "Requires careful time-blocking and task prioritization to avoid exhaustion[cite: 2]."
+            },
+            {
+                title: "Full Stack Demerit: Jack of All Trades Paradox",
+                category: "Full Stack Demerits",
+                description: "Because web technologies are massive, becoming an absolute master in every single domain is extremely difficult[cite: 2].",
+                details: "Encourages deep specialization in core pillars while maintaining broad general awareness[cite: 2]."
+            },
+            {
+                title: "Full Stack Demerit: Continuous Learning Overload",
+                category: "Full Stack Demerits",
+                description: "Developers must constantly keep up with fast-changing frontend tools and backend ecosystems[cite: 2].",
+                details: "Demands structured continuous education and curated ecosystem filtering[cite: 2]."
+            },
+            {
+                title: "Career Possibilities & Market Values",
+                category: "Career",
+                description: "Explores global career pathways for frontend, backend, and full-stack engineers across remote and onsite markets[cite: 2].",
+                details: "Highlights high-paying freelance consultancies and tech leadership trajectories[cite: 2]."
+            },
+            {
+                title: "Core Web Development Capstone & PDF Integration",
+                category: "Capstone",
+                description: "Synthesizes architectural knowledge, client pricing strategies, and ecosystem tools into professional practice[cite: 1, 2].",
+                details: "Reinforced by downloading the official Web Development Core Topics PDF from the root folder[cite: 1, 2]."
+            }
+        ];
+
+        const milestonesContainer = document.getElementById('milestones-container');
+        const dockContent = document.getElementById('dock-content');
+
+        webDevSections.forEach((item, index) => {
+            const num = index + 1;
+            const id = `section-${num}`;
+            
+            const card = document.createElement('div');
+            card.id = id;
+            card.className = "glass-panel p-6 rounded-2xl space-y-4 border border-slate-800 hover:border-cyan-500/40 transition-all";
+            card.innerHTML = `
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-mono text-neonCyan font-bold">Section ${num < 10 ? '0' + num : num} of 50</span>
+                    <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">${item.category}</span>
+                </div>
+                <h3 class="font-space text-lg font-bold text-white">${item.title}</h3>
+                <div class="space-y-3 text-xs sm:text-sm text-slate-300 justified-text">
+                    <p><strong>Core Overview:</strong> ${item.description}</p>
+                    <p class="text-cyan-200/90 bg-cyan-500/5 p-3 rounded-lg border border-cyan-500/20"><strong>Key Insight:</strong> ${item.details}</p>
+                </div>
+                <div class="pt-2 flex items-center justify-between text-xs font-mono text-slate-400 border-t border-slate-800/80">
+                    <span>Ecosystem Standard</span>
+                    <a href="#hero" class="text-neonCyan hover:underline">Back to Top ↑</a>
+                </div>
+            `;
+            milestonesContainer.appendChild(card);
+
+            const dockLink = document.createElement('a');
+            dockLink.href = `#${id}`;
+            dockLink.className = "dock-link block px-3 py-2 rounded-lg text-slate-300 hover:text-neonCyan hover:bg-cyan-500/10 transition-colors truncate";
+            dockLink.dataset.target = id;
+            dockLink.textContent = `${num}. ${item.title}`;
+            dockContent.appendChild(dockLink);
+        });
+
+        const leftDock = document.getElementById('left-dock');
+        const dockTrigger = document.getElementById('dock-trigger');
+        const dockClose = document.getElementById('dock-close');
+
+        function openDock() {
+            leftDock.classList.remove('-translate-x-full');
+            dockTrigger.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        function closeDock() {
+            leftDock.classList.add('-translate-x-full');
+            dockTrigger.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        dockTrigger.addEventListener('click', openDock);
+        dockClose.addEventListener('click', closeDock);
+
+        document.addEventListener('click', (e) => {
+            if (!leftDock.contains(e.target) && !dockTrigger.contains(e.target) && !leftDock.classList.contains('-translate-x-full')) {
+                closeDock();
+            }
+        });
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '-20% 0px -60% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const targetId = entry.target.id;
+                    document.querySelectorAll('.dock-link').forEach(link => {
+                        if (link.dataset.target === targetId) {
+                            link.classList.add('text-neonCyan', 'bg-cyan-500/15', 'font-bold');
+                            link.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        } else {
+                            link.classList.remove('text-neonCyan', 'bg-cyan-500/15', 'font-bold');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('[id^="section-"]').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

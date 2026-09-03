@@ -179,98 +179,309 @@
 
     <main class="flex-grow pt-20">
 
-        <!-- Hero Header -->
+        <!-- Section 1: Reminder of why this page is designed -->
         <section class="relative py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center space-y-6">
             <div class="inline-flex items-center space-x-2 px-5 py-2 rounded-full glass-panel border border-cyan-500/30 text-neonCyan text-xs sm:text-sm font-space tracking-widest uppercase shadow-lg shadow-cyan-500/10">
-                <span>📁 Official Resources & Guidelines</span>
+                <span>📁 Official PDF Booklets & Repositories</span>
             </div>
             <h1 class="font-space font-bold text-4xl sm:text-6xl tracking-tight text-white leading-tight">
-                Documentation & <span class="text-transparent bg-clip-text bg-gradient-to-r from-neonCyan to-electricViolet glow-text">Library</span>
+                Documentation & <span class="text-transparent bg-clip-text bg-gradient-to-r from-neonCyan to-electricViolet glow-text">PDF Library</span>
             </h1>
             <p class="max-w-3xl mx-auto text-base sm:text-lg text-slate-300 font-light leading-relaxed justified-text">
-                Welcome to the official Olympiad Edge document repository. Access curated study notes, architectural templates, competitive programming cheat sheets, and regulatory guidelines to support your journey from beginner to international medalist.
+                This document repository is meticulously designed to provide Olympiad Edge students with direct access to comprehensive study guides, technical cheat sheets, and architectural roadmaps. Every single booklet in this collection serves as an indispensable offline manual, bridging the gap between theoretical computer science concepts and elite practical execution so that aspiring developers can build robust foundations and scale their programming careers effectively.
             </p>
             <div class="pt-4 flex justify-center">
                 <img src="Logo.jpg" alt="Olympiad Edge Documents Overview" class="w-full max-w-2xl rounded-2xl border border-cyan-500/30 shadow-2xl object-cover h-64 sm:h-80">
             </div>
         </section>
 
-        <!-- Document Grid Section -->
+        <!-- Document Grid Section (11 Individual PDF Files - Re-arranged logically by syllabus & learning sense) -->
         <section class="reveal-section pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-                <!-- Document Card 1 -->
+                <!-- 1. Programming Basic Types (Foundational Step 1) -->
+                <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-cyan-500/30 relative overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-neonCyan font-space font-bold text-xs tracking-widest uppercase">PDF • Fundamentals</span>
+                            <span class="text-xs text-slate-400">Size: 478 KB</span>
+                        </div>
+                        <h3 class="font-space font-bold text-xl sm:text-2xl text-white mb-3">Programming Basic Types</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed justified-text mb-6">
+                            Understanding primitive data types, memory allocation, variable scoping, and type casting is the absolute cornerstone of writing bug-free software. This fundamental reference manual breaks down how different programming languages handle integers, floating-point numbers, characters, booleans, and complex composite structures under the hood. Perfect for beginners seeking a rock-solid grasp of syntax semantics and type safety across multiple high-level programming languages.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+                        <span class="text-xs text-slate-400 font-mono">Updated: 2026</span>
+                        <a href="Programming Basic Types.pdf" download class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-yellow-500 to-amber-600 text-white font-space font-semibold text-xs shadow-lg hover:shadow-yellow-500/50 transition-all">Download PDF →</a>
+                    </div>
+                </div>
+
+                <!-- 2. Coding Platforms (Where to code) -->
+                <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-cyan-500/30 relative overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-neonCyan font-space font-bold text-xs tracking-widest uppercase">PDF • Reference</span>
+                            <span class="text-xs text-slate-400">Size: 233 KB</span>
+                        </div>
+                        <h3 class="font-space font-bold text-xl sm:text-2xl text-white mb-3">Coding Platforms</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed justified-text mb-6">
+                            Navigating the vast ecosystem of online judges and competitive programming environments can be overwhelmingly difficult for newcomers. This curated booklet breaks down the absolute best global platforms, detailing their unique rating systems, contest structures, problem difficulty curves, and community cultures. Learn precisely where you should practice data structures, participate in international contests, and track your long-term algorithmic growth metrics efficiently.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+                        <span class="text-xs text-slate-400 font-mono">Updated: 2026</span>
+                        <a href="Coding Platforms.pdf" download class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-teal-500 to-emerald-600 text-white font-space font-semibold text-xs shadow-lg hover:shadow-emerald-500/50 transition-all">Download PDF →</a>
+                    </div>
+                </div>
+
+                <!-- 3. VS Code Extensions (Tooling & Setup) -->
+                <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-cyan-500/30 relative overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-neonCyan font-space font-bold text-xs tracking-widest uppercase">PDF • Tooling</span>
+                            <span class="text-xs text-slate-400">Size: 123 KB</span>
+                        </div>
+                        <h3 class="font-space font-bold text-xl sm:text-2xl text-white mb-3">VS Code Extensions</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed justified-text mb-6">
+                            Visual Studio Code is the world's most popular code editor, but its true power lies in its extensive plugin ecosystem. This targeted tooling manual lists the absolute mandatory extensions for linting, code formatting, syntax highlighting, remote development, Git integration, and AI-assisted pair programming. Optimize your development environment for maximum productivity, eliminate ergonomic friction, and customize your workspace into an elite coding workstation.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+                        <span class="text-xs text-slate-400 font-mono">Updated: 2026</span>
+                        <a href="VS Code Extensions.pdf" download class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-violet-700 text-white font-space font-semibold text-xs shadow-lg hover:shadow-indigo-500/50 transition-all">Download PDF →</a>
+                    </div>
+                </div>
+
+                <!-- 4. Web Development Core Topics (Core Development) -->
+                <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-cyan-500/30 relative overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-neonCyan font-space font-bold text-xs tracking-widest uppercase">PDF • Core Web</span>
+                            <span class="text-xs text-slate-400">Size: 613 KB</span>
+                        </div>
+                        <h3 class="font-space font-bold text-xl sm:text-2xl text-white mb-3">Web Development Core Topics</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed justified-text mb-6">
+                            The modern internet is built upon a robust foundation of HTML5, responsive CSS3 styling, asynchronous JavaScript, DOM manipulation, and network protocols. This comprehensive core web handbook covers everything from semantic markup and CSS grid layouts to RESTful APIs and browser rendering mechanics. Designed as an exhaustive reference manual, it ensures you master the foundational pillars required to build lightning-fast, accessible, and visually stunning web applications for global audiences.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+                        <span class="text-xs text-slate-400 font-mono">Updated: 2026</span>
+                        <a href="Web Development Core Topics.pdf" download class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-fuchsia-600 to-cyan-500 text-white font-space font-semibold text-xs glow-button">Download PDF →</a>
+                    </div>
+                </div>
+
+                <!-- 5. Full-Stack Ecosystem (Architecture & Scaling) -->
+                <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-cyan-500/30 relative overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-neonCyan font-space font-bold text-xs tracking-widest uppercase">PDF • Architecture</span>
+                            <span class="text-xs text-slate-400">Size: 109 KB</span>
+                        </div>
+                        <h3 class="font-space font-bold text-xl sm:text-2xl text-white mb-3">Full-Stack Ecosystem</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed justified-text mb-6">
+                            Modern full-stack web development involves a complex orchestration of client-side frameworks, robust backend servers, asynchronous databases, and cloud deployment pipelines. This architectural overview maps out the essential technology stacks powering scalable web applications today. Understand how different components communicate through APIs, secure authentication layers, and microservices architecture to build high-performance digital products from scratch with absolute confidence.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+                        <span class="text-xs text-slate-400 font-mono">Updated: 2026</span>
+                        <a href="Full-Stack Ecosystem.pdf" download class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-rose-500 to-red-600 text-white font-space font-semibold text-xs shadow-lg hover:shadow-red-500/50 transition-all">Download PDF →</a>
+                    </div>
+                </div>
+
+                <!-- 6. Competitive Programming Training (Advanced Algorithms) -->
+                <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-cyan-500/30 relative overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-neonCyan font-space font-bold text-xs tracking-widest uppercase">PDF • Training</span>
+                            <span class="text-xs text-slate-400">Size: 428 KB</span>
+                        </div>
+                        <h3 class="font-space font-bold text-xl sm:text-2xl text-white mb-3">Competitive Programming Training</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed justified-text mb-6">
+                            Mastering competitive programming requires rigorous discipline, deep mathematical intuition, and lightning-fast implementation skills. This intensive training manual outlines structured practice roadmaps, time complexity optimization techniques, graph theory fundamentals, and dynamic programming paradigms. Designed to take you from a curious beginner to a confident contest participant, it provides tactical blueprints for breaking through plateaus and conquering complex algorithmic challenges under strict time limits.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+                        <span class="text-xs text-slate-400 font-mono">Updated: 2026</span>
+                        <a href="Competitive Programming Training.pdf" download class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-space font-semibold text-xs shadow-lg hover:shadow-blue-500/50 transition-all">Download PDF →</a>
+                    </div>
+                </div>
+
+                <!-- 7. AI Assistance (Modern Productivity) -->
                 <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-cyan-500/30 relative overflow-hidden flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-neonCyan font-space font-bold text-xs tracking-widest uppercase">PDF • Guide</span>
-                            <span class="text-xs text-slate-400">Updated: 2026</span>
+                            <span class="text-xs text-slate-400">Size: 268 KB</span>
                         </div>
-                        <h3 class="font-space font-bold text-xl sm:text-2xl text-white mb-3">Complete Student Handbook</h3>
+                        <h3 class="font-space font-bold text-xl sm:text-2xl text-white mb-3">AI Assistance</h3>
                         <p class="text-slate-300 text-sm leading-relaxed justified-text mb-6">
-                            The definitive guidebook covering all 11 sections of the Olympiad Edge curriculum, code formatting rules, contest guidelines, and community code of conduct.
+                            This comprehensive guide explores how modern artificial intelligence tools can revolutionize your daily coding workflow, supercharge debugging speed, and automate repetitive boilerplate tasks. Discover advanced prompt engineering strategies tailored specifically for software engineers looking to leverage LLMs safely, write cleaner algorithms, and maintain absolute architectural control over their production codebases without sacrificing fundamental problem-solving skills.
                         </p>
                     </div>
                     <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
-                        <span class="text-xs text-slate-400 font-mono">Size: 4.2 MB</span>
-                        <a href="#" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-violet-600 text-white font-space font-semibold text-xs glow-button">Download PDF →</a>
+                        <span class="text-xs text-slate-400 font-mono">Updated: 2026</span>
+                        <a href="AI Assistance.pdf" download class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-violet-600 text-white font-space font-semibold text-xs glow-button">Download PDF →</a>
                     </div>
                 </div>
 
-                <!-- Document Card 2 -->
+                <!-- 8. Project Showroom & Capstone (Building Portfolios) -->
                 <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-cyan-500/30 relative overflow-hidden flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between mb-4">
-                            <span class="text-neonCyan font-space font-bold text-xs tracking-widest uppercase">PDF • Cheat Sheet</span>
-                            <span class="text-xs text-slate-400">Updated: 2026</span>
+                            <span class="text-neonCyan font-space font-bold text-xs tracking-widest uppercase">PDF • Capstone</span>
+                            <span class="text-xs text-slate-400">Size: 396 KB</span>
                         </div>
-                        <h3 class="font-space font-bold text-xl sm:text-2xl text-white mb-3">Competitive Programming Cheat Sheet</h3>
+                        <h3 class="font-space font-bold text-xl sm:text-2xl text-white mb-3">Project Showroom & Capstone</h3>
                         <p class="text-slate-300 text-sm leading-relaxed justified-text mb-6">
-                            High-frequency algorithms, standard template libraries (STL) shortcuts, time complexity reference tables, and common mathematical identities for contest speed.
+                            Building impressive capstone projects is the ultimate way to prove your technical competence to potential employers and open-source communities. This blueprint guides you through ideating, architecting, documenting, and deploying production-ready software applications. Learn how to structure your repository README files, write clean commit histories, design intuitive user interfaces, and showcase your finished portfolio projects professionally to stand out in a competitive job market.
                         </p>
                     </div>
                     <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
-                        <span class="text-xs text-slate-400 font-mono">Size: 2.8 MB</span>
-                        <a href="#" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-violet-600 text-white font-space font-semibold text-xs glow-button">Download PDF →</a>
+                        <span class="text-xs text-slate-400 font-mono">Updated: 2026</span>
+                        <a href="Project Showroom & Capstone.pdf" download class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-space font-semibold text-xs shadow-lg hover:shadow-teal-500/50 transition-all">Download PDF →</a>
                     </div>
                 </div>
 
-                <!-- Document Card 3 -->
+                <!-- 9. SaaS Empire (Monetization & Entrepreneurship) -->
                 <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-cyan-500/30 relative overflow-hidden flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between mb-4">
-                            <span class="text-neonCyan font-space font-bold text-xs tracking-widest uppercase">Markdown • Blueprint</span>
-                            <span class="text-xs text-slate-400">Updated: 2026</span>
+                            <span class="text-neonCyan font-space font-bold text-xs tracking-widest uppercase">PDF • Entrepreneurship</span>
+                            <span class="text-xs text-slate-400">Size: 244 KB</span>
                         </div>
-                        <h3 class="font-space font-bold text-xl sm:text-2xl text-white mb-3">VS Code & Git Workstation Setup Guide</h3>
+                        <h3 class="font-space font-bold text-xl sm:text-2xl text-white mb-3">SaaS Empire</h3>
                         <p class="text-slate-300 text-sm leading-relaxed justified-text mb-6">
-                            Step-by-step terminal instructions, essential extension lists, keyboard shortcut mappings, and Git branch configuration scripts for elite development setups.
+                            Transforming brilliant code into a sustainable Software-as-a-Service (SaaS) business requires a rare blend of technical execution and entrepreneurial strategy. This entrepreneurial guidebook covers subscription billing models, user acquisition funnels, scalable cloud infrastructure design, product-led growth tactics, and churn rate optimization. Empower yourself with the knowledge needed to build, launch, and monetize profitable software products that solve real-world problems autonomously.
                         </p>
                     </div>
                     <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
-                        <span class="text-xs text-slate-400 font-mono">Format: Markdown</span>
-                        <a href="#" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-violet-600 text-white font-space font-semibold text-xs glow-button">View Document →</a>
+                        <span class="text-xs text-slate-400 font-mono">Updated: 2026</span>
+                        <a href="SaaS Empire.pdf" download class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-700 text-white font-space font-semibold text-xs shadow-lg hover:shadow-cyan-500/50 transition-all">Download PDF →</a>
                     </div>
                 </div>
 
-                <!-- Document Card 4 -->
+                <!-- 10. CV Recommendation (Inspiration & Prodigy Profile) -->
                 <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-cyan-500/30 relative overflow-hidden flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between mb-4">
-                            <span class="text-neonCyan font-space font-bold text-xs tracking-widest uppercase">PDF • Roadmap</span>
-                            <span class="text-xs text-slate-400">Updated: 2026</span>
+                            <span class="text-neonCyan font-space font-bold text-xs tracking-widest uppercase">PDF • Career & Inspiration</span>
+                            <span class="text-xs text-slate-400">Size: 149 KB</span>
                         </div>
-                        <h3 class="font-space font-bold text-xl sm:text-2xl text-white mb-3">AI Prompt Engineering for Developers</h3>
+                        <h3 class="font-space font-bold text-xl sm:text-2xl text-white mb-3">CV Recommandation</h3>
                         <p class="text-slate-300 text-sm leading-relaxed justified-text mb-6">
-                            Advanced prompt templates for Cursor and Claude, automated unit testing frameworks, and strict audit checklists for AI-assisted code generation.
+                            This booklet showcases what an elite professional CV looks like and features Rayaan Tasnim, a remarkable 13-year-old prodigy programmer. By highlighting Rayaan's extraordinary journey, it serves to inspire every newbie to realize that age is just a number in the world of technology. Learn how to structure your credentials, showcase major achievements early on, and present your unique background to stand out to global tech recruiters.
                         </p>
                     </div>
                     <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
-                        <span class="text-xs text-slate-400 font-mono">Size: 3.1 MB</span>
-                        <a href="#" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-violet-600 text-white font-space font-semibold text-xs glow-button">Download PDF →</a>
+                        <span class="text-xs text-slate-400 font-mono">Updated: 2026</span>
+                        <a href="CV Recommandation.pdf" download class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-space font-semibold text-xs shadow-lg hover:shadow-purple-500/50 transition-all">Download PDF →</a>
                     </div>
                 </div>
 
+                <!-- 11. Double Helix Future (Ultimate Vision) -->
+                <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-cyan-500/30 relative overflow-hidden flex flex-col justify-between md:col-span-2">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-neonCyan font-space font-bold text-xs tracking-widest uppercase">PDF • Vision</span>
+                            <span class="text-xs text-slate-400">Size: 496 KB</span>
+                        </div>
+                        <h3 class="font-space font-bold text-xl sm:text-2xl text-white mb-3">Double Helix Future</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed justified-text mb-6">
+                            Double Helix Future showcases how you can choose both paths—winning prestigious Olympiad gold medals as well as building your own independent SaaS empire. This visionary guide explores the dual tracks of competitive algorithmic excellence and entrepreneurial software product creation, demonstrating that world-class programmers do not have to choose between competitive prestige and commercial success. It maps out how to balance high-level problem-solving mastery with scalable tech business ventures for a supreme future.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+                        <span class="text-xs text-slate-400 font-mono">Updated: 2026</span>
+                        <a href="Double Helix Future.pdf" download class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 text-white font-space font-semibold text-xs shadow-lg hover:shadow-amber-500/50 transition-all">Download PDF →</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section: GitHub Repository Overview -->
+        <section class="reveal-section pb-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+            <div class="glass-panel rounded-3xl p-8 sm:p-12 border border-cyan-500/30 text-center space-y-6">
+                <div class="inline-flex items-center space-x-2 px-5 py-2 rounded-full glass-panel border border-cyan-500/30 text-neonCyan text-xs sm:text-sm font-space tracking-widest uppercase shadow-lg">
+                    <span>🌐 Centralized Source Control</span>
+                </div>
+                <h2 class="font-space font-bold text-3xl sm:text-4xl text-white">
+                    Explore the <span class="text-neonCyan">PDF-Booklets</span> GitHub Repository
+                </h2>
+                <p class="text-slate-300 text-base sm:text-lg leading-relaxed justified-text max-w-3xl mx-auto">
+                    If you prefer to browse, inspect, or clone all eleven PDF files in one convenient folder glance, you can access our official GitHub repository. This repository acts as the central version-controlled archive for all Olympiad Edge study notes, allowing contributors and students to track document revisions, download batch archives, and inspect raw Markdown or PDF assets directly in a unified online interface.
+                </p>
+                <div class="pt-2">
+                    <a href="https://github.com/rayaantasnim/PDF-Booklets" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-cyan-500 via-violet-600 to-electricViolet text-white font-space font-bold text-sm glow-button">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        <span>View Repository on GitHub →</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Download Buttons At a Glance (11 Different Styled Buttons - Re-arranged in logical syllabus order) -->
+        <section class="reveal-section pb-28 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+            <div class="glass-panel rounded-3xl p-8 sm:p-12 border border-cyan-500/30 space-y-8">
+                <div class="text-center space-y-3">
+                    <div class="inline-flex items-center space-x-2 px-5 py-2 rounded-full glass-panel border border-cyan-500/30 text-neonCyan text-xs sm:text-sm font-space tracking-widest uppercase shadow-lg">
+                        <span>⚡ Quick Access Hub</span>
+                    </div>
+                    <h2 class="font-space font-bold text-3xl sm:text-4xl text-white">
+                        Download Buttons <span class="text-neonCyan">At a Glance</span>
+                    </h2>
+                    <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto">
+                        Quickly download any of the 11 study booklets using the uniquely styled buttons below.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-4">
+                    <!-- Button 1 -->
+                    <a href="Programming Basic Types.pdf" download class="flex items-center justify-center px-5 py-3 rounded-xl bg-yellow-500 hover:bg-yellow-400 text-slate-950 font-space font-black text-xs uppercase tracking-wider transition-all shadow-[0_0_15px_rgba(234,179,8,0.5)]">
+                        ↓ Basic Types
+                    </a>
+                    <!-- Button 2 -->
+                    <a href="Coding Platforms.pdf" download class="flex items-center justify-center px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-space font-bold text-xs uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(16,185,129,0.4)] border border-emerald-400/30">
+                        ↓ Coding Platforms
+                    </a>
+                    <!-- Button 3 -->
+                    <a href="VS Code Extensions.pdf" download class="flex items-center justify-center px-5 py-3 rounded-xl bg-violet-800 hover:bg-violet-700 text-white font-space font-bold text-xs uppercase tracking-wider transition-all tracking-widest">
+                        ↓ VS Code Ext
+                    </a>
+                    <!-- Button 4 -->
+                    <a href="Web Development Core Topics.pdf" download class="flex items-center justify-center px-5 py-3 rounded-xl bg-gradient-to-r from-neonCyan via-indigo-600 to-electricViolet hover:opacity-90 text-white font-space font-bold text-xs uppercase tracking-wider transition-all glow-button">
+                        ↓ Web Core Topics
+                    </a>
+                    <!-- Button 5 -->
+                    <a href="Full-Stack Ecosystem.pdf" download class="flex items-center justify-center px-5 py-3 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-space font-bold text-xs uppercase tracking-wider transition-all border-b-4 border-rose-900">
+                        ↓ Full-Stack
+                    </a>
+                    <!-- Button 6 -->
+                    <a href="Competitive Programming Training.pdf" download class="flex items-center justify-center px-5 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-500 hover:to-indigo-600 text-white font-space font-bold text-xs uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(59,130,246,0.4)]">
+                        ↓ CP Training
+                    </a>
+                    <!-- Button 7 -->
+                    <a href="AI Assistance.pdf" download class="flex items-center justify-center px-5 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-cosmicBg font-space font-bold text-xs uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(0,240,255,0.4)]">
+                        ↓ AI Assistance
+                    </a>
+                    <!-- Button 8 -->
+                    <a href="Project Showroom & Capstone.pdf" download class="flex items-center justify-center px-5 py-3 rounded-xl bg-teal-600 hover:bg-teal-500 text-white font-space font-bold text-xs uppercase tracking-wider transition-all italic">
+                        ↓ Capstone Projects
+                    </a>
+                    <!-- Button 9 -->
+                    <a href="SaaS Empire.pdf" download class="flex items-center justify-center px-5 py-3 rounded-xl bg-blue-900 hover:bg-blue-800 text-neonCyan font-space font-bold text-xs uppercase tracking-wider transition-all border border-cyan-400/50 shadow-inner">
+                        ↓ SaaS Empire
+                    </a>
+                    <!-- Button 10 -->
+                    <a href="CV Recommandation.pdf" download class="flex items-center justify-center px-5 py-3 rounded-xl bg-purple-700 hover:bg-purple-600 text-white font-space font-bold text-xs uppercase tracking-wider transition-all ring-2 ring-purple-400/50">
+                        ↓ CV Guide
+                    </a>
+                    <!-- Button 11 -->
+                    <a href="Double Helix Future.pdf" download class="flex items-center justify-center px-5 py-3 rounded-xl bg-amber-600 hover:bg-amber-500 text-slate-950 font-space font-extrabold text-xs uppercase tracking-wider transition-all shadow-lg sm:col-span-2 md:col-span-3 lg:col-span-1">
+                        ↓ Double Helix
+                    </a>
+                </div>
             </div>
         </section>
 

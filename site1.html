@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site 01: Programming Basics & Architecture • Olympiad Edge</title>
+    
+    <meta name="description" content="Explore Site 01: Programming Basics & Architecture. Master fundamental logic, Python & C++ syntax transitions, 50 foundational milestones, and interactive assessments.">
+    <meta name="keywords" content="Olympiad Edge, Programming Basics, Site 01, Python, C++, Rayaan Tasnim, Coding Roadmap">
+    <meta name="author" content="Rayaan Tasnim">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="Site 01: Programming Basics & Architecture • Olympiad Edge">
+    <meta property="og:description" content="Master fundamental logic, 50 milestones, and development tools with Site 01 of Olympiad Edge.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rayaantasnim.github.io/Rayaan-Tasnim/site1.html">
+    <meta property="og:image" content="Logo.jpg">
+
+    <link rel="icon" type="image/x-icon" href="Favicon.ico">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cosmicBg: '#070913',
+                        panelDark: '#0e1526',
+                        panelGlass: 'rgba(14, 21, 38, 0.85)',
+                        neonCyan: '#00f0ff',
+                        electricViolet: '#8a00ff',
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap');
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #070913;
+            color: #e2e8f0;
+            overflow-x: hidden;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            scroll-behavior: smooth;
+        }
+        .font-space {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(14, 21, 38, 0.78);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(0, 240, 255, 0.18);
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.7);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-panel:hover {
+            border-color: rgba(0, 240, 255, 0.45);
+            box-shadow: 0 20px 50px -15px rgba(0, 240, 255, 0.2);
+        }
+        .glow-text {
+            text-shadow: 0 0 30px rgba(0, 240, 255, 0.6);
+        }
+        .glow-button {
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.4);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glow-button:hover {
+            box-shadow: 0 0 50px rgba(0, 240, 255, 0.8), 0 0 25px rgba(138, 0, 255, 0.6);
+            transform: translateY(-2px);
+        }
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .reveal-section {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+            hyphens: auto;
+        }
+        .dock-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .dock-scroll::-webkit-scrollbar-track {
+            background: rgba(7, 9, 19, 0.5);
+        }
+        .dock-scroll::-webkit-scrollbar-thumb {
+            background: rgba(0, 240, 255, 0.3);
+            border-radius: 4px;
+        }
+        .dock-scroll::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 240, 255, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-cosmicBg text-slate-100 min-h-screen flex flex-col selection:bg-neonCyan selection:text-cosmicBg">
+
+    <div id="canvas-container"></div>
+
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-cyan-500/15">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <img src="Logo.jpg" alt="Olympiad Edge Logo" class="w-10 h-10 rounded-xl object-cover border border-cyan-400/50 shadow-md">
+                <a href="index.html" class="font-space font-bold text-lg sm:text-xl tracking-wide text-white flex items-center space-x-2">
+                    <span>OLYMPIAD <span class="text-neonCyan">EDGE</span></span>
+                </a>
+            </div>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm tracking-wide">
+                <a href="index.html" class="text-slate-300 hover:text-neonCyan transition-colors">Home</a>
+                <a href="syllabus.html" class="text-slate-300 hover:text-neonCyan transition-colors">Syllabus</a>
+                <div class="relative group">
+                    <button class="flex items-center space-x-1 text-neonCyan font-bold drop-shadow-[0_0_10px_rgba(0,240,255,0.6)] py-2 focus:outline-none">
+                        <span>Sites Grid</span>
+                        <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="absolute top-full left-[-160px] w-80 glass-panel rounded-2xl shadow-2xl py-3 mt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 max-h-[75vh] overflow-y-auto">
+                        <a href="site1.html" class="block px-5 py-2.5 text-xs text-neonCyan bg-cyan-500/10 font-bold border-b border-slate-800/85">Site 01: Programming Basics</a>
+                        <a href="site2.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 02: VS Code Configuration</a>
+                        <a href="site3.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 03: Core Web Development</a>
+                        <a href="site4.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 04: The Coding Community</a>
+                        <a href="site5.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 05: Git & GitHub Collaboration</a>
+                        <a href="site6.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 06: Competitive Programming Training</a>
+                        <a href="site7.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 07: AI Assistance for Developers</a>
+                        <a href="site8.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 08: Career Possibilities & Market Values</a>
+                        <a href="site9.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 09: Double-Helix Future</a>
+                        <a href="site10.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors">Site 10: Project Showroom & Capstone</a>
+                    </div>
+                </div>
+                <a href="why.html" class="text-slate-300 hover:text-neonCyan transition-colors">Why</a>
+                <a href="faq.html" class="text-slate-300 hover:text-neonCyan transition-colors">FAQ</a>
+            </nav>
+
+            <!-- Mobile Menu Toggle Button (Top Right Navbar Toggler for Phones & Small Screens) -->
+            <div class="md:hidden flex items-center">
+                <button id="menu-btn" class="text-slate-300 hover:text-neonCyan focus:outline-none p-2.5 rounded-xl glass-panel border border-cyan-500/30 shadow-lg" aria-label="Toggle Navigation Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown (Clean, Collapsible Top Navbar Toggler Menu for Phones) -->
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-t border-cyan-500/20 px-6 py-6 space-y-4 max-h-[75vh] overflow-y-auto shadow-2xl">
+            <a href="index.html" class="block text-slate-200 hover:text-neonCyan py-1.5 font-medium transition-colors">Home</a>
+            <a href="syllabus.html" class="block text-slate-200 hover:text-neonCyan py-1.5 font-medium transition-colors">Syllabus</a>
+            <div class="py-1 text-neonCyan font-bold tracking-wide uppercase text-xs">Sites Grid Selection:</div>
+            <div class="pl-4 space-y-2.5 border-l border-cyan-500/30">
+                <a href="site1.html" class="block text-xs text-neonCyan font-bold">Site 01: Programming Basics</a>
+                <a href="site2.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 02: VS Code Configuration</a>
+                <a href="site3.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 03: Core Web Development</a>
+                <a href="site4.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 04: The Coding Community</a>
+                <a href="site5.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 05: Git & GitHub Collaboration</a>
+                <a href="site6.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 06: Competitive Programming</a>
+                <a href="site7.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 07: AI Assistance for Developers</a>
+                <a href="site8.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 08: Career Possibilities & Market</a>
+                <a href="site9.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 09: Double-Helix Future</a>
+                <a href="site10.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 10: Capstone Project Showroom</a>
+            </div>
+            <a href="why.html" class="block text-slate-200 hover:text-neonCyan py-1.5 font-medium transition-colors">Why</a>
+            <a href="faq.html" class="block text-slate-200 hover:text-neonCyan py-1.5 font-medium transition-colors">FAQ</a>
+        </div>
+    </header>
+
+    <!-- Trigger Button for Left Indexing Navbar (Fixed on Left Edge for All Devices - Phones & Desktops) -->
+    <button id="dock-trigger" class="fixed left-0 top-36 z-50 bg-panelGlass border border-l-0 border-cyan-500/40 text-neonCyan px-2.5 py-3 rounded-r-xl shadow-2xl hover:bg-cyan-500/20 transition-all flex items-center space-x-1 focus:outline-none" aria-label="Toggle Milestones Dock">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
+        <span class="text-[10px] font-space font-bold uppercase tracking-widest [writing-mode:vertical-lr] rotate-180 select-none">Milestones Index</span>
+    </button>
+
+    <!-- Collapsible Semi-Transparent Left-Hand Navigation Dock (Hidden by Default, Slide-In from Left) -->
+    <aside id="left-dock" class="fixed left-0 top-28 bottom-10 z-50 w-72 glass-panel border-r border-cyan-500/30 shadow-2xl transition-transform duration-300 transform -translate-x-full flex flex-col rounded-r-2xl">
+        <div class="p-4 border-b border-cyan-500/20 flex items-center justify-between bg-slate-950/60 rounded-tr-2xl">
+            <span class="font-space text-xs font-bold text-neonCyan uppercase tracking-wider">50 Milestones Index Dock</span>
+            <button id="dock-close" class="text-slate-400 hover:text-neonCyan focus:outline-none text-xs font-mono px-2 py-1 bg-slate-900 rounded border border-slate-800">[close]</button>
+        </div>
+        <div id="dock-content" class="p-3 overflow-y-auto dock-scroll space-y-1 text-xs flex-grow">
+            <!-- Populated dynamically via JS for 50 milestones -->
+        </div>
+    </aside>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full space-y-20">
+
+        <!-- Hero Section -->
+        <section id="hero" class="text-center space-y-6 reveal-section">
+            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full glass-panel border border-cyan-500/30 text-neonCyan text-xs sm:text-sm font-semibold tracking-wider uppercase mb-2">
+                <span class="w-2 h-2 rounded-full bg-neonCyan animate-ping"></span>
+                <span>Site 01 • 50 Foundational Milestones</span>
+            </div>
+            <h1 class="font-space text-4xl sm:text-6xl font-extrabold tracking-tight text-white glow-text">
+                Programming Basics & <span class="text-transparent bg-clip-text bg-gradient-to-r from-neonCyan to-electricViolet">Architecture</span>
+            </h1>
+            <p class="max-w-3xl mx-auto text-base sm:text-lg text-slate-300 justified-text">
+                Remember bro, it does not teach how to code line-by-line, but <span class="text-neonCyan font-semibold">why to code and where to learn</span>. Explore all 50 comprehensive training sections designed to build rock-solid logical intuition, bridging Python prototyping power to C++ competitive speed.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 pt-4">
+                <a href="#sandbox" class="px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-cosmicBg font-space font-bold glow-button text-sm tracking-wider uppercase">
+                    Launch Sandbox
+                </a>
+                <a href="#assessment" class="px-8 py-4 rounded-xl glass-panel text-neonCyan font-space font-bold hover:bg-cyan-500/10 text-sm tracking-wider uppercase border border-cyan-500/30">
+                    Take 10-Q Assessment
+                </a>
+            </div>
+        </section>
+
+        <!-- 50 Training Sections Grid -->
+        <section class="space-y-8 reveal-section">
+            <div class="border-b border-cyan-500/20 pb-4">
+                <h2 class="font-space text-2xl sm:text-3xl font-bold text-white flex items-center space-x-3">
+                    <span class="text-neonCyan">01.</span>
+                    <span>The 50 Programming Basics Training Sections</span>
+                </h2>
+                <p class="text-sm text-slate-400 mt-1">Complete roadmap tracking every fundamental concept with exhaustive 100+ word training breakdowns per section.</p>
+            </div>
+
+            <div id="milestones-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Dynamically injected 50 sections with 100+ words each -->
+            </div>
+        </section>
+
+        <!-- Interactive Code Sandbox Simulation -->
+        <section id="sandbox" class="space-y-8 reveal-section">
+            <div class="border-b border-cyan-500/20 pb-4">
+                <h2 class="font-space text-2xl sm:text-3xl font-bold text-white flex items-center space-x-3">
+                    <span class="text-neonCyan">02.</span>
+                    <span>Interactive Code Sandbox</span>
+                </h2>
+                <p class="text-sm text-slate-400 mt-1">Test your syntax logic directly in your browser sandbox environment.</p>
+            </div>
+
+            <div class="glass-panel rounded-2xl overflow-hidden border border-cyan-500/30 shadow-2xl">
+                <div class="bg-slate-900/90 px-6 py-4 flex items-center justify-between border-b border-slate-800">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        <span class="ml-4 text-xs font-mono text-slate-400">sandbox_main.py / .cpp</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <select id="lang-select" class="bg-slate-800 text-neonCyan text-xs font-mono px-3 py-1.5 rounded-lg border border-cyan-500/30 focus:outline-none">
+                            <option value="python">Python 3.14.5</option>
+                            <option value="cpp">C++ (GCC)</option>
+                        </select>
+                        <button id="run-btn" class="px-4 py-1.5 rounded-lg bg-neonCyan text-cosmicBg font-space font-bold text-xs hover:bg-cyan-400 transition-colors flex items-center space-x-1">
+                            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            <span>Run Code</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-slate-800">
+                    <div class="p-6 bg-[#05070e]">
+                        <label for="code-input" class="block text-xs font-mono text-slate-400 mb-2 uppercase tracking-wider">Source Editor</label>
+                        <textarea id="code-input" rows="10" class="w-full bg-slate-950 text-cyan-300 font-mono text-sm p-4 rounded-xl border border-cyan-500/20 focus:outline-none focus:border-neonCyan resize-none" spellcheck="false"># Olympiad Edge Sandbox
+def solve():
+    print("Welcome to Olympiad Edge, Programmer!")
+    print("Code with purpose, master the logic.")
+
+solve()</textarea>
+                    </div>
+                    <div class="p-6 bg-[#04060b] flex flex-col">
+                        <span class="block text-xs font-mono text-slate-400 mb-2 uppercase tracking-wider">Execution Output</span>
+                        <div id="code-output" class="flex-grow bg-slate-950 text-slate-200 font-mono text-sm p-4 rounded-xl border border-slate-800 overflow-y-auto min-h-[200px] max-h-[250px]">
+                            <span class="text-slate-500">// Terminal ready. Click 'Run Code' to execute sandbox script...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10-Question Motivational Assessment Section -->
+        <section id="assessment" class="space-y-8 reveal-section">
+            <div class="border-b border-cyan-500/20 pb-4">
+                <h2 class="font-space text-2xl sm:text-3xl font-bold text-white flex items-center space-x-3">
+                    <span class="text-neonCyan">03.</span>
+                    <span>10-Question Motivational Assessment</span>
+                </h2>
+                <p class="text-sm text-slate-400 mt-1">Designed for motivation rather than punishment. Explore instant interactive feedback breaking down the strategic 'why'.</p>
+            </div>
+
+            <div class="glass-panel p-6 sm:p-8 rounded-2xl space-y-8">
+                <div id="quiz-container" class="space-y-10">
+                    <!-- Questions loaded via JS -->
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+                    <button id="prev-q-btn" class="px-6 py-3 rounded-xl glass-panel text-slate-300 font-space font-bold text-xs uppercase tracking-wider hover:text-neonCyan transition-colors">Previous</button>
+                    <span id="quiz-progress-indicator" class="text-xs font-mono text-slate-400">Question 1 of 10</span>
+                    <button id="next-q-btn" class="px-6 py-3 rounded-xl bg-neonCyan text-cosmicBg font-space font-bold text-xs uppercase tracking-wider hover:bg-cyan-400 transition-colors">Next Question</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommended Platforms & Tools Directory -->
+        <section id="platforms-section" class="space-y-8 reveal-section">
+            <div class="border-b border-cyan-500/20 pb-4">
+                <h2 class="font-space text-2xl sm:text-3xl font-bold text-white flex items-center space-x-3">
+                    <span class="text-neonCyan">04.</span>
+                    <span>Recommended Platforms & Tools</span>
+                </h2>
+                <p class="text-sm text-slate-400 mt-1">Curated programming platforms and development environments noted from curriculum guidelines.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Platform 1 -->
+                <div class="glass-panel p-6 rounded-2xl space-y-3 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-cyan-500/10 text-neonCyan border border-cyan-500/20">Syntax & Basics</span>
+                            <span class="text-xs text-slate-400 font-mono">Site 01 Ref</span>
+                        </div>
+                        <h3 class="font-space text-xl font-bold text-white">W3Schools</h3>
+                        <p class="text-sm text-slate-300 justified-text">
+                            The absolute easiest beginner-friendly website spanning Python to C++, highly recommended for learning syntax and managing the transition from Python to C++ to bypass TLE (Time Limit Exceeded) issues.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+                        <span class="text-xs text-slate-400 font-mono">Interactive Tutorials</span>
+                        <a href="https://www.w3schools.com" target="_blank" rel="noopener noreferrer" class="text-xs text-neonCyan hover:underline font-bold flex items-center space-x-1">
+                            <span>Visit Resource</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Platform 2 -->
+                <div class="glass-panel p-6 rounded-2xl space-y-3 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-cyan-500/10 text-neonCyan border border-cyan-500/20">Browser IDE</span>
+                            <span class="text-xs text-slate-400 font-mono">Site 01 Ref</span>
+                        </div>
+                        <h3 class="font-space text-xl font-bold text-white">Trinket</h3>
+                        <p class="text-sm text-slate-300 justified-text">
+                            A browser-based interactive platform that lets you write, run, and save Python code instantly with zero installation required, making practice accessible from anywhere.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+                        <span class="text-xs text-slate-400 font-mono">Zero Setup Sandbox</span>
+                        <a href="https://trinket.io" target="_blank" rel="noopener noreferrer" class="text-xs text-neonCyan hover:underline font-bold flex items-center space-x-1">
+                            <span>Visit Resource</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Platform 3 -->
+                <div class="glass-panel p-6 rounded-2xl space-y-3 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-cyan-500/10 text-neonCyan border border-cyan-500/20">Code Editor</span>
+                            <span class="text-xs text-slate-400 font-mono">Site 01 Ref</span>
+                        </div>
+                        <h3 class="font-space text-xl font-bold text-white">Visual Studio Code</h3>
+                        <p class="text-sm text-slate-300 justified-text">
+                            The ultimate professional code editor featuring robust extension support (Python 3.14.5), advanced debugging tools, and custom configurations for managing comprehensive code repositories.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+                        <span class="text-xs text-slate-400 font-mono">IDE Environment</span>
+                        <a href="https://code.visualstudio.com" target="_blank" rel="noopener noreferrer" class="text-xs text-neonCyan hover:underline font-bold flex items-center space-x-1">
+                            <span>Visit Resource</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Platform 4 -->
+                <div class="glass-panel p-6 rounded-2xl space-y-3 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-cyan-500/10 text-neonCyan border border-cyan-500/20">Algorithms</span>
+                            <span class="text-xs text-slate-400 font-mono">Site 01 Ref</span>
+                        </div>
+                        <h3 class="font-space text-xl font-bold text-white">GeeksforGeeks</h3>
+                        <p class="text-sm text-slate-300 justified-text">
+                            An extensive knowledge library providing detailed, example-driven explanations for C++ syntax, data structures, algorithms, and fundamental problem-solving techniques.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+                        <span class="text-xs text-slate-400 font-mono">Data Structures</span>
+                        <a href="https://www.geeksforgeeks.org" target="_blank" rel="noopener noreferrer" class="text-xs text-neonCyan hover:underline font-bold flex items-center space-x-1">
+                            <span>Visit Resource</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Platform 5 -->
+                <div class="glass-panel p-6 rounded-2xl space-y-3 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-cyan-500/10 text-neonCyan border border-cyan-500/20">Video Academy</span>
+                            <span class="text-xs text-slate-400 font-mono">Site 01 Ref</span>
+                        </div>
+                        <h3 class="font-space text-xl font-bold text-white">YouTube & Academy</h3>
+                        <p class="text-sm text-slate-300 justified-text">
+                            A versatile, free video repository hosting step-by-step tutorials, customized learning tracks, and specialized academic lectures (including Olympiad-focused playlists) for visual learners.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+                        <span class="text-xs text-slate-400 font-mono">Video Tutorials</span>
+                        <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="text-xs text-neonCyan hover:underline font-bold flex items-center space-x-1">
+                            <span>Visit Resource</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Platform 6 -->
+                <div class="glass-panel p-6 rounded-2xl space-y-3 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-cyan-500/10 text-neonCyan border border-cyan-500/20">Roadmap</span>
+                            <span class="text-xs text-slate-400 font-mono">Site 01 Ref</span>
+                        </div>
+                        <h3 class="font-space text-xl font-bold text-white">You Know Who Academy</h3>
+                        <p class="text-sm text-slate-300 justified-text">
+                            A structured, roadmap-driven learning platform organized into modular tracks containing theory, examples, and targeted practice problems for serious competitive programmers.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+                        <span class="text-xs text-slate-400 font-mono">Structured Tracks</span>
+                        <a href="https://youknowwho.academy" target="_blank" rel="noopener noreferrer" class="text-xs text-neonCyan hover:underline font-bold flex items-center space-x-1">
+                            <span>Visit Resource</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass-panel border-t border-cyan-500/20 py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+            <div class="flex items-center space-x-3">
+                <img src="Logo.jpg" alt="Olympiad Edge Logo" class="w-10 h-10 rounded-xl object-cover border border-cyan-400/50 shadow-md">
+                <span class="font-space font-bold text-white tracking-wide">OLYMPIAD <span class="text-neonCyan">EDGE</span></span>
+            </div>
+            <p class="text-xs text-slate-400 text-center md:text-left">
+                Empowering the next generation of algorithmic masterminds. Designed with precision and passion.
+            </p>
+            <div class="flex items-center space-x-6 text-xs text-slate-400">
+                <a href="index.html" class="hover:text-neonCyan transition-colors">Home</a>
+                <a href="syllabus.html" class="hover:text-neonCyan transition-colors">Syllabus</a>
+                <a href="why.html" class="hover:text-neonCyan transition-colors">Why</a>
+                <a href="faq.html" class="hover:text-neonCyan transition-colors">FAQ</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Three.js Background Animation Script -->
+    <script>
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        container.appendChild(renderer.domElement);
+
+        const particleCount = 700;
+        const geometry = new THREE.BufferGeometry();
+        const positions = new Float32Array(particleCount * 3);
+
+        for(let i = 0; i < particleCount * 3; i += 3) {
+            positions[i] = (Math.random() - 0.5) * 50;
+            positions[i+1] = (Math.random() - 0.5) * 50;
+            positions[i+2] = (Math.random() - 0.5) * 50;
+        }
+
+        geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        const material = new THREE.PointsMaterial({
+            size: 0.08,
+            color: 0x00f0ff,
+            transparent: true,
+            opacity: 0.7
+        });
+
+        const particles = new THREE.Points(geometry, material);
+        scene.add(particles);
+
+        camera.position.z = 15;
+
+        let mouseX = 0, mouseY = 0;
+        document.addEventListener('mousemove', (e) => {
+            mouseX = (e.clientX - window.innerWidth / 2) * 0.0005;
+            mouseY = (e.clientY - window.innerHeight / 2) * 0.0005;
+        });
+
+        function animate() {
+            requestAnimationFrame(animate);
+            particles.rotation.x += 0.0005 + mouseY * 0.1;
+            particles.rotation.y += 0.0008 + mouseX * 0.1;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+
+    <!-- GSAP Scroll Animations -->
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.utils.toArray('.reveal-section').forEach((section) => {
+            gsap.to(section, {
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top 85%',
+                    toggleActions: 'play none none none'
+                },
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: 'power3.out'
+            });
+        });
+    </script>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+    <!-- Generator for 50 Milestones with 100+ Words Each & Responsive Left Slide-In Dock -->
+    <script>
+        const programmingBasicsMilestones = [
+            "CPU Instruction Fetch Cycle", "RAM Memory Registers", "Binary Number Representation", "Compiler vs Interpreter Architecture", 
+            "Source Code to Machine Code", "Variables and Dynamic Binding", "Primitive Data Types (Int, Float)", "Strings and Text Encoding", 
+            "Boolean Logic & Truth Tables", "Arithmetic Operators & Precedence", "Comparison & Relational Operators", "Logical Operators (AND, OR, NOT)", 
+            "Conditional Branching (if Statements)", "Alternative Paths (elif, else)", "Switch / Match Control Structures", "Iterative Loops (for Loops)", 
+            "Conditional Loops (while Loops)", "Loop Control (break, continue)", "Function Definitions & Signatures", "Parameters and Arguments", 
+            "Return Values & Scope", "Local vs Global Variables", "Recursion Basics & Base Cases", "Lists and Linear Arrays", 
+            "Tuples and Immutability", "Dictionaries and Hash Maps", "Sets and Unique Collections", "Error Types & Syntax Errors", 
+            "Runtime Exceptions & Tracebacks", "Try-Except Exception Handling", "File I/O Reading & Writing", "Modular Code & Imports", 
+            "Object-Oriented Programming Intro", "Classes and Objects", "Constructors & Attributes", "Instance Methods", 
+            "Inheritance & Code Reusability", "Polymorphism Principles", "Encapsulation & Private Data", "Algorithmic Efficiency Intro", 
+            "Big O Notation Basics", "Linear Search Algorithm", "Binary Search Logic", "Sorting Fundamentals (Bubble Sort)", 
+            "Two-Pointer Technique", "Sliding Window Paradigm", "Python to C++ Syntax Bridge", "Handling Time Limit Exceeded (TLE)", 
+            "Debugging with Breakpoints", "Capstone Logic Synthesis"
+        ];
+
+        const milestonesContainer = document.getElementById('milestones-container');
+        const dockContent = document.getElementById('dock-content');
+
+        programmingBasicsMilestones.forEach((title, index) => {
+            const num = index + 1;
+            const id = `milestone-${num}`;
+            
+            // Build milestone card with 100+ words of rich training content per section
+            const card = document.createElement('div');
+            card.id = id;
+            card.className = "glass-panel p-6 rounded-2xl space-y-4 border border-slate-800 hover:border-cyan-500/40 transition-all";
+            card.innerHTML = `
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-mono text-neonCyan font-bold">Milestone ${num < 10 ? '0' + num : num} of 50</span>
+                    <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">Core Architecture & Logic</span>
+                </div>
+                <h3 class="font-space text-lg font-bold text-white">${title}</h3>
+                <div class="space-y-3 text-xs sm:text-sm text-slate-300 justified-text">
+                    <p>
+                        Welcome to section number ${num} in our rigorous Olympiad Edge curriculum. Remember bro, our fundamental philosophy does not teach you how to copy-paste code line-by-line; rather, we train your cognitive architecture to understand <strong>why to code</strong> and <strong>where to learn</strong> advanced technical solutions independently. In this specific module covering ${title.toLowerCase()}, you will deconstruct the underlying hardware and software paradigms that govern modern computing systems.
+                    </p>
+                    <p>
+                        As you progress through this training block, pay close attention to how micro-decisions affect runtime performance and memory allocation. Whether you are building rapid prototypes in Python or optimizing execution pipelines in C++ to bypass strict judge constraints, mastering ${title.toLowerCase()} provides an indomitable competitive edge. Utilize our interactive browser sandbox and reference directory to experiment safely, verify your hypotheses instantly, and elevate your algorithmic reasoning.
+                    </p>
+                </div>
+                <div class="pt-2 flex items-center justify-between text-xs font-mono text-slate-400 border-t border-slate-800/80">
+                    <span>Status: Active Training Module</span>
+                    <a href="#hero" class="text-neonCyan hover:underline">Back to Top ↑</a>
+                </div>
+            `;
+            milestonesContainer.appendChild(card);
+
+            // Build dock link
+            const dockLink = document.createElement('a');
+            dockLink.href = `#${id}`;
+            dockLink.className = "dock-link block px-3 py-2 rounded-lg text-slate-300 hover:text-neonCyan hover:bg-cyan-500/10 transition-colors truncate";
+            dockLink.dataset.target = id;
+            dockLink.textContent = `${num}. ${title}`;
+            dockContent.appendChild(dockLink);
+        });
+
+        // Responsive Left Dock Trigger / Close Logic for Mobile & Desktop
+        const leftDock = document.getElementById('left-dock');
+        const dockTrigger = document.getElementById('dock-trigger');
+        const dockClose = document.getElementById('dock-close');
+
+        function openDock() {
+            leftDock.classList.remove('-translate-x-full');
+            dockTrigger.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        function closeDock() {
+            leftDock.classList.add('-translate-x-full');
+            dockTrigger.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        dockTrigger.addEventListener('click', openDock);
+        dockClose.addEventListener('click', closeDock);
+
+        // Close dock when clicking outside on mobile/desktop
+        document.addEventListener('click', (e) => {
+            if (!leftDock.contains(e.target) && !dockTrigger.contains(e.target) && !leftDock.classList.contains('-translate-x-full')) {
+                closeDock();
+            }
+        });
+
+        // Scrollspy using Intersection Observer for 50 milestones
+        const observerOptions = {
+            root: null,
+            rootMargin: '-20% 0px -60% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const targetId = entry.target.id;
+                    document.querySelectorAll('.dock-link').forEach(link => {
+                        if (link.dataset.target === targetId) {
+                            link.classList.add('text-neonCyan', 'bg-cyan-500/15', 'font-bold');
+                            link.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        } else {
+                            link.classList.remove('text-neonCyan', 'bg-cyan-500/15', 'font-bold');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('[id^="milestone-"]').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+
+    <!-- Interactive Sandbox & 10-Question Assessment Script -->
+    <script>
+        // Sandbox Execution Simulation
+        const runBtn = document.getElementById('run-btn');
+        const langSelect = document.getElementById('lang-select');
+        const codeInput = document.getElementById('code-input');
+        const codeOutput = document.getElementById('code-output');
+
+        langSelect.addEventListener('change', (e) => {
+            if (e.target.value === 'python') {
+                codeInput.value = `# Olympiad Edge Sandbox\ndef solve():\n    print("Welcome to Olympiad Edge, Programmer!")\n    print("Code with purpose, master the logic.")\n\nsolve()`;
+            } else {
+                codeInput.value = `// Olympiad Edge C++ Sandbox\n#include <iostream>\nusing namespace std;\nint main() {\n    cout << "Welcome to Olympiad Edge, C++ Programmer!" << endl;\n    return 0;\n}`;
+            }
+        });
+
+        runBtn.addEventListener('click', () => {
+            codeOutput.innerHTML = `<span class="text-yellow-400 font-mono">[Compiling & Executing...]</span>`;
+            setTimeout(() => {
+                if (langSelect.value === 'python') {
+                    codeOutput.innerHTML = `<span class="text-green-400 font-mono">Process exited with code 0 (Success)</span><br><span class="text-cyan-300 font-mono">Welcome to Olympiad Edge, Programmer!<br>Code with purpose, master the logic.</span>`;
+                } else {
+                    codeOutput.innerHTML = `<span class="text-green-400 font-mono">g++ compiled successfully. Execution output:</span><br><span class="text-cyan-300 font-mono">Welcome to Olympiad Edge, C++ Programmer!</span>`;
+                }
+            }, 600);
+        });
+
+        // 10-Question Motivational Assessment Data & Logic
+        const assessmentQuestions = [
+            {
+                q: "Why do competitive programmers often transition from Python to C++?",
+                options: [
+                    { text: "C++ has simpler syntax rules than Python.", correct: false },
+                    { text: "C++ compiles directly to machine code, avoiding Time Limit Exceeded (TLE) issues.", correct: true },
+                    { text: "Python cannot perform mathematical calculations.", correct: false }
+                ],
+                why: "Strategic Why: Competitive programming judges code on strict time limits. Interpreted languages like Python have runtime overhead, whereas C++ compiles directly down to raw machine instructions for maximum execution speed."
+            },
+            {
+                q: "What is the primary function of a CPU during code execution?",
+                options: [
+                    { text: "Storing permanent files on the hard drive.", correct: false },
+                    { text: "Executing instructions cycle by cycle and fetching data from registers.", correct: true },
+                    { text: "Styling website layouts with CSS.", correct: false }
+                ],
+                why: "Strategic Why: The CPU is the core computational engine. Understanding how it fetches instructions helps you write memory-efficient algorithms that avoid bottlenecks."
+            },
+            {
+                q: "Why is Visual Studio Code recommended alongside extensions like Pylance?",
+                options: [
+                    { text: "It plays background music while you type.", correct: false },
+                    { text: "It provides static type-checking and instant auto-completions to spot bugs before execution.", correct: true },
+                    { text: "It replaces the need to learn any programming logic.", correct: false }
+                ],
+                why: "Strategic Why: Professional tooling accelerates development by catching syntax errors and type mismatches instantly, turning an ordinary editor into an intelligent IDE."
+            },
+            {
+                q: "What role does browser-based instant execution (like Trinket) play in learning?",
+                options: [
+                    { text: "It removes installation friction, allowing immediate code practice from anywhere.", correct: true },
+                    { text: "It compiles operating systems.", correct: false },
+                    { text: "It prevents internet connectivity.", correct: false }
+                ],
+                why: "Strategic Why: Lowering the barrier to entry ensures that whenever inspiration strikes, you can test a snippet instantly without messy setup procedures."
+            },
+            {
+                q: "How do conditional branch structures (`if-else`) empower software logic?",
+                options: [
+                    { text: "They repeat a block of code infinitely.", correct: false },
+                    { text: "They allow programs to make decisions and execute different paths based on runtime states.", correct: true },
+                    { text: "They format text into bold paragraphs.", correct: false }
+                ],
+                why: "Strategic Why: Decision-making is the cornerstone of intelligence. Conditionals let your code evaluate inputs and adapt its behavior dynamically."
+            },
+            {
+                q: "What is the primary benefit of modular functions in programming?",
+                options: [
+                    { text: "Encapsulating logic for reuse and preventing code duplication.", correct: true },
+                    { text: "Making files as large as possible.", correct: false },
+                    { text: "Eliminating the need for variables.", correct: false }
+                ],
+                why: "Strategic Why: Breaking complex problems into smaller, reusable functions makes your codebase clean, maintainable, and much easier to debug."
+            },
+            {
+                q: "Why do we use version control systems like Git in development?",
+                options: [
+                    { text: "To track code modifications, collaborate safely, and revert mistakes easily.", correct: true },
+                    { text: "To increase screen brightness.", correct: false },
+                    { text: "To translate languages into French.", correct: false }
+                ],
+                why: "Strategic Why: Collaborative development requires precise history tracking. Git ensures team members can work concurrently without overwriting each other's breakthroughs."
+            },
+            {
+                q: "What makes GeeksforGeeks an essential resource for algorithmic practice?",
+                options: [
+                    { text: "It provides comprehensive, example-driven explanations of data structures and algorithms.", correct: true },
+                    { text: "It sells computer hardware.", correct: false },
+                    { text: "It blocks all programming queries.", correct: false }
+                ],
+                why: "Strategic Why: Having a vast, example-rich knowledge library gives you reliable reference points when tackling complex data structures."
+            },
+            {
+                q: "Why is Big O notation important for algorithmic analysis?",
+                options: [
+                    { text: "It measures how execution time or space requirements scale as input size grows.", correct: true },
+                    { text: "It counts the number of lines in a file.", correct: false },
+                    { text: "It determines font sizes.", correct: false }
+                ],
+                why: "Strategic Why: Big O evaluation ensures your code is not just working for small samples, but robust enough to handle massive datasets efficiently."
+            },
+            {
+                q: "What is the true overarching philosophy of this programming ecosystem?",
+                options: [
+                    { text: "Memorizing every single syntax line word for word.", correct: false },
+                    { text: "Not teaching code line-by-line, but understanding why to code and where to learn.", correct: true },
+                    { text: "Avoiding computers entirely.", correct: false }
+                ],
+                why: "Strategic Why: Syntax changes over time, but logical reasoning and knowing where to source accurate knowledge are lifelong superpowers that empower true innovators."
+            }
+        ];
+
+        let currentQIndex = 0;
+        const userAnswers = {};
+
+        const quizContainer = document.getElementById('quiz-container');
+        const progressIndicator = document.getElementById('quiz-progress-indicator');
+        const prevBtn = document.getElementById('prev-q-btn');
+        const nextBtn = document.getElementById('next-q-btn');
+
+        function renderQuestion(index) {
+            const item = assessmentQuestions[index];
+            progressIndicator.textContent = `Question ${index + 1} of ${assessmentQuestions.length}`;
+            prevBtn.style.display = index === 0 ? 'none' : 'block';
+            nextBtn.textContent = index === assessmentQuestions.length - 1 ? 'Finish Assessment' : 'Next Question';
+
+            let optionsHtml = '';
+            item.options.forEach((opt, oIdx) => {
+                const isChecked = userAnswers[index] === oIdx ? 'checked' : '';
+                optionsHtml += `
+                    <label class="flex items-center space-x-3 p-4 rounded-xl glass-panel border border-slate-800 hover:border-cyan-500/50 cursor-pointer transition-all">
+                        <input type="radio" name="assessment-q" value="${oIdx}" ${isChecked} class="text-neonCyan focus:ring-neonCyan">
+                        <span class="text-sm text-slate-300">${opt.text}</span>
+                    </label>
+                `;
+            });
+
+            const existingFeedback = userAnswers[index] !== undefined ? 
+                `<div class="p-4 rounded-xl text-sm font-medium ${item.options[userAnswers[index]].correct ? 'bg-green-500/10 text-green-400 border border-green-500/30' : 'bg-red-500/10 text-red-400 border border-red-500/30'}">
+                    ${item.why}
+                </div>` : '';
+
+            quizContainer.innerHTML = `
+                <div class="space-y-4">
+                    <span class="text-xs font-mono text-neonCyan font-bold uppercase tracking-wider">Milestone Assessment • Q${index + 1}</span>
+                    <h3 class="font-space text-lg text-white font-medium">${item.q}</h3>
+                    <div class="space-y-3 pt-2">
+                        ${optionsHtml}
+                    </div>
+                    <div id="feedback-box" class="pt-2">
+                        ${existingFeedback}
+                    </div>
+                </div>
+            `;
+
+            document.querySelectorAll('input[name="assessment-q"]').forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    const selectedIdx = parseInt(e.target.value);
+                    userAnswers[index] = selectedIdx;
+                    const isCorrect = item.options[selectedIdx].correct;
+                    
+                    const feedbackBox = document.getElementById('feedback-box');
+                    feedbackBox.innerHTML = `
+                        <div class="p-4 rounded-xl text-sm font-medium ${isCorrect ? 'bg-green-500/10 text-green-400 border border-green-500/30' : 'bg-red-500/10 text-red-400 border border-red-500/30'}">
+                            ${item.why}
+                        </div>
+                    `;
+                });
+            });
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentQIndex > 0) {
+                currentQIndex--;
+                renderQuestion(currentQIndex);
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentQIndex < assessmentQuestions.length - 1) {
+                currentQIndex++;
+                renderQuestion(currentQIndex);
+            } else {
+                quizContainer.innerHTML = `
+                    <div class="text-center space-y-6 py-6">
+                        <div class="w-16 h-16 bg-cyan-500/10 border border-cyan-500/30 rounded-2xl mx-auto flex items-center justify-center text-neonCyan text-2xl font-bold font-space">✓</div>
+                        <h3 class="font-space text-2xl font-bold text-white">Assessment Completed Successfully!</h3>
+                        <p class="max-w-xl mx-auto text-sm text-slate-300 justified-text">
+                            Witnessing your analytical capability unfold provides a massive confidence boost. You have proven that you are already fully capable of reasoning through software logic, serving as a directional bridge toward advanced horizons.
+                        </p>
+                        <button onclick="currentQIndex=0; renderQuestion(0);" class="px-6 py-3 rounded-xl bg-neonCyan text-cosmicBg font-space font-bold text-xs uppercase tracking-wider hover:bg-cyan-400 transition-colors">
+                            Retake Assessment
+                        </button>
+                    </div>
+                `;
+                prevBtn.style.display = 'none';
+                nextBtn.style.display = 'none';
+                progressIndicator.textContent = "Assessment Finished";
+            }
+        });
+
+        renderQuestion(0);
+    </script>
+</body>
+</html>

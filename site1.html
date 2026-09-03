@@ -144,6 +144,7 @@
                         <a href="site10.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors">Site 10: Project Showroom & Capstone</a>
                     </div>
                 </div>
+                <a href="documents.html" class="text-slate-300 hover:text-neonCyan transition-colors">Documents</a>
                 <a href="why.html" class="text-slate-300 hover:text-neonCyan transition-colors">Why</a>
                 <a href="faq.html" class="text-slate-300 hover:text-neonCyan transition-colors">FAQ</a>
             </nav>
@@ -160,19 +161,28 @@
         <div id="mobile-menu" class="hidden md:hidden glass-panel border-t border-cyan-500/20 px-6 py-6 space-y-4 max-h-[75vh] overflow-y-auto shadow-2xl">
             <a href="index.html" class="block text-slate-200 hover:text-neonCyan py-1.5 font-medium transition-colors">Home</a>
             <a href="syllabus.html" class="block text-slate-200 hover:text-neonCyan py-1.5 font-medium transition-colors">Syllabus</a>
-            <div class="py-1 text-neonCyan font-bold tracking-wide uppercase text-xs">Sites Grid Selection:</div>
-            <div class="pl-4 space-y-2.5 border-l border-cyan-500/30">
-                <a href="site1.html" class="block text-xs text-neonCyan font-bold">Site 01: Programming Basics</a>
-                <a href="site2.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 02: VS Code Configuration</a>
-                <a href="site3.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 03: Core Web Development</a>
-                <a href="site4.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 04: The Coding Community</a>
-                <a href="site5.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 05: Git & GitHub Collaboration</a>
-                <a href="site6.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 06: Competitive Programming</a>
-                <a href="site7.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 07: AI Assistance for Developers</a>
-                <a href="site8.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 08: Career Possibilities & Market</a>
-                <a href="site9.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 09: Double-Helix Future</a>
-                <a href="site10.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 10: Capstone Project Showroom</a>
+            
+            <!-- Mobile Sites Grid Dropdown -->
+            <div>
+                <button id="mobile-sites-grid-btn" class="w-full flex items-center justify-between text-slate-200 hover:text-neonCyan py-1.5 font-medium transition-colors focus:outline-none">
+                    <span>Sites Grid</span>
+                    <svg class="w-4 h-4 transition-transform" id="mobile-sites-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="mobile-sites-dropdown" class="hidden pl-4 mt-2 space-y-2.5 border-l border-cyan-500/30">
+                    <a href="site1.html" class="block text-xs text-neonCyan font-bold">Site 01: Programming Basics</a>
+                    <a href="site2.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 02: VS Code Configuration</a>
+                    <a href="site3.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 03: Core Web Development</a>
+                    <a href="site4.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 04: The Coding Community</a>
+                    <a href="site5.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 05: Git & GitHub Collaboration</a>
+                    <a href="site6.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 06: Competitive Programming</a>
+                    <a href="site7.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 07: AI Assistance for Developers</a>
+                    <a href="site8.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 08: Career Possibilities & Market</a>
+                    <a href="site9.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 09: Double-Helix Future</a>
+                    <a href="site10.html" class="block text-xs text-slate-300 hover:text-neonCyan transition-colors">Site 10: Capstone Project Showroom</a>
+                </div>
             </div>
+
+            <a href="documents.html" class="block text-slate-200 hover:text-neonCyan py-1.5 font-medium transition-colors">Documents</a>
             <a href="why.html" class="block text-slate-200 hover:text-neonCyan py-1.5 font-medium transition-colors">Why</a>
             <a href="faq.html" class="block text-slate-200 hover:text-neonCyan py-1.5 font-medium transition-colors">FAQ</a>
         </div>
@@ -188,7 +198,10 @@
     <aside id="left-dock" class="fixed left-0 top-28 bottom-10 z-50 w-72 glass-panel border-r border-cyan-500/30 shadow-2xl transition-transform duration-300 transform -translate-x-full flex flex-col rounded-r-2xl">
         <div class="p-4 border-b border-cyan-500/20 flex items-center justify-between bg-slate-950/60 rounded-tr-2xl">
             <span class="font-space text-xs font-bold text-neonCyan uppercase tracking-wider">50 Milestones Index Dock</span>
-            <button id="dock-close" class="text-slate-400 hover:text-neonCyan focus:outline-none text-xs font-mono px-2 py-1 bg-slate-900 rounded border border-slate-800">[close]</button>
+            <button id="dock-close" class="text-xs font-space font-semibold px-3 py-1.5 bg-gradient-to-r from-cyan-500/20 to-blue-600/20 text-neonCyan border border-cyan-500/40 rounded-lg shadow-md hover:bg-cyan-500/30 hover:border-neonCyan transition-all focus:outline-none flex items-center space-x-1">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                <span>Close</span>
+            </button>
         </div>
         <div id="dock-content" class="p-3 overflow-y-auto dock-scroll space-y-1 text-xs flex-grow">
             <!-- Populated dynamically via JS -->
@@ -447,21 +460,37 @@ solve()</textarea>
 
     </main>
 
-    <!-- Footer -->
-    <footer class="glass-panel border-t border-cyan-500/20 py-12 mt-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
-            <div class="flex items-center space-x-3">
-                <img src="Logo.jpg" alt="Olympiad Edge Logo" class="w-10 h-10 rounded-xl object-cover border border-cyan-400/50 shadow-md">
-                <span class="font-space font-bold text-white tracking-wide">OLYMPIAD <span class="text-neonCyan">EDGE</span></span>
+    <!-- Upgraded Premium Footer -->
+    <footer class="glass-panel border-t border-cyan-500/20 py-12 mt-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-t from-cyan-950/20 to-transparent pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col space-y-8">
+            <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+                <div class="flex items-center space-x-3">
+                    <img src="Logo.jpg" alt="Olympiad Edge Logo" class="w-10 h-10 rounded-xl object-cover border border-cyan-400/50 shadow-md">
+                    <span class="font-space font-bold text-white tracking-wide">OLYMPIAD <span class="text-neonCyan">EDGE</span></span>
+                </div>
+                <div class="flex items-center space-x-6 text-sm text-slate-300">
+                    <a href="index.html" class="hover:text-neonCyan transition-colors">Home</a>
+                    <a href="syllabus.html" class="hover:text-neonCyan transition-colors">Syllabus</a>
+                    <a href="documents.html" class="hover:text-neonCyan transition-colors">Documents</a>
+                    <a href="why.html" class="hover:text-neonCyan transition-colors">Why</a>
+                    <a href="faq.html" class="hover:text-neonCyan transition-colors">FAQ</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="https://github.com/rayaantasnim" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl glass-panel border border-cyan-500/30 flex items-center justify-center text-slate-300 hover:text-neonCyan hover:border-neonCyan transition-all shadow-lg" aria-label="GitHub">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl glass-panel border border-cyan-500/30 flex items-center justify-center text-slate-300 hover:text-neonCyan hover:border-neonCyan transition-all shadow-lg" aria-label="LinkedIn">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
             </div>
-            <p class="text-xs text-slate-400 text-center md:text-left">
-                Empowering the next generation of algorithmic masterminds. Designed with precision and passion.
-            </p>
-            <div class="flex items-center space-x-6 text-xs text-slate-400">
-                <a href="index.html" class="hover:text-neonCyan transition-colors">Home</a>
-                <a href="syllabus.html" class="hover:text-neonCyan transition-colors">Syllabus</a>
-                <a href="why.html" class="hover:text-neonCyan transition-colors">Why</a>
-                <a href="faq.html" class="hover:text-neonCyan transition-colors">FAQ</a>
+            <div class="pt-8 border-t border-cyan-500/25 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 space-y-4 sm:space-y-0">
+                <p>&copy; 2026 Olympiad Edge. All rights reserved.</p>
+                <div class="flex items-center space-x-2">
+                    <span>Prepared by</span>
+                    <a href="https://rayaantasnim.github.io/Rayaan-Tasnim/" target="_blank" rel="noopener noreferrer" class="font-space font-bold text-neonCyan hover:underline drop-shadow-[0_0_8px_rgba(0,240,255,0.5)]">Rayaan Tasnim</a>
+                </div>
             </div>
         </div>
     </footer>
@@ -538,12 +567,21 @@ solve()</textarea>
         });
     </script>
 
-    <!-- Mobile Menu Toggle Script -->
+    <!-- Mobile Menu Toggle Script & Sites Grid Dropdown -->
     <script>
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+        });
+
+        const mobileSitesGridBtn = document.getElementById('mobile-sites-grid-btn');
+        const mobileSitesDropdown = document.getElementById('mobile-sites-dropdown');
+        const mobileSitesArrow = document.getElementById('mobile-sites-arrow');
+
+        mobileSitesGridBtn.addEventListener('click', () => {
+            mobileSitesDropdown.classList.toggle('hidden');
+            mobileSitesArrow.classList.toggle('rotate-180');
         });
     </script>
 

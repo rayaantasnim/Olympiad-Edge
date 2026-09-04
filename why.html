@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Olympiad Edge • Career & Core Benefits</title>
+    
+    <meta name="description" content="Discover the core benefits, facilities, and massive career possibilities unlocked through Olympiad Edge's double-helix coding curriculum.">
+    <meta name="keywords" content="Why Olympiad Edge, Career Possibilities, Coding Benefits, Rayaan Tasnim">
+    <meta name="author" content="Rayaan Tasnim">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="Why Olympiad Edge • Career & Core Benefits">
+    <meta property="og:description" content="Explore why mastering competitive programming and software engineering gives you an unshakeable edge in the global tech ecosystem.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rayaantasnim.github.io/Rayaan-Tasnim/why.html">
+    <meta property="og:image" content="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg">
+
+    <link rel="icon" type="image/x-icon" href="Favicon.ico">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cosmicBg: '#070913',
+                        panelDark: '#0e1526',
+                        panelGlass: 'rgba(14, 21, 38, 0.85)',
+                        neonCyan: '#00f0ff',
+                        electricViolet: '#8a00ff',
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap');
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #070913;
+            color: #e2e8f0;
+            overflow-x: hidden;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+        }
+        .font-space {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(14, 21, 38, 0.78);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(0, 240, 255, 0.18);
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.7);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-panel:hover {
+            border-color: rgba(0, 240, 255, 0.45);
+            box-shadow: 0 20px 50px -15px rgba(0, 240, 255, 0.2);
+        }
+        .glow-text {
+            text-shadow: 0 0 30px rgba(0, 240, 255, 0.6);
+        }
+        .glow-button {
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.4);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glow-button:hover {
+            box-shadow: 0 0 50px rgba(0, 240, 255, 0.8), 0 0 25px rgba(138, 0, 255, 0.6);
+            transform: translateY(-2px);
+        }
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .reveal-section {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+            hyphens: auto;
+        }
+    </style>
+</head>
+<body class="bg-cosmicBg text-slate-100 min-h-screen flex flex-col selection:bg-neonCyan selection:text-cosmicBg">
+
+    <div id="canvas-container"></div>
+
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-cyan-500/15">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <img src="Logo.jpg" alt="Olympiad Edge Logo" class="w-10 h-10 rounded-xl object-cover border border-cyan-400/50 shadow-md">
+                <a href="index.html" class="font-space font-bold text-lg sm:text-xl tracking-wide text-white flex items-center space-x-2">
+                    <span>OLYMPIAD <span class="text-neonCyan">EDGE</span></span>
+                </a>
+            </div>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm tracking-wide">
+                <a href="index.html" class="text-slate-300 hover:text-neonCyan transition-colors">Home</a>
+                <a href="syllabus.html" class="text-slate-300 hover:text-neonCyan transition-colors">Syllabus</a>
+                <div class="relative group">
+                    <button class="flex items-center space-x-1 text-slate-300 hover:text-neonCyan transition-colors focus:outline-none py-2">
+                        <span>Sites Grid</span>
+                        <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="absolute top-full left-[-160px] w-80 glass-panel rounded-2xl shadow-2xl py-3 mt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 max-h-[75vh] overflow-y-auto">
+                        <a href="site1.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 01: Programming Basics</a>
+                        <a href="site2.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 02: VS Code Configuration</a>
+                        <a href="site3.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 03: Core Web Development</a>
+                        <a href="site4.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 04: The Coding Community</a>
+                        <a href="site5.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 05: Git & GitHub Collaboration</a>
+                        <a href="site6.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 06: Competitive Programming Training</a>
+                        <a href="site7.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 07: AI Assistance for Developers</a>
+                        <a href="site8.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 08: Career Possibilities & Market Values</a>
+                        <a href="site9.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 09: Double-Helix Future</a>
+                        <a href="site10.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors">Site 10: Project Showroom & Capstone</a>
+                    </div>
+                </div>
+                <a href="document.html" class="text-slate-300 hover:text-neonCyan transition-colors">Document</a>
+                <a href="why.html" class="text-neonCyan font-bold drop-shadow-[0_0_10px_rgba(0,240,255,0.6)]">Why</a>
+                <a href="faq.html" class="text-slate-300 hover:text-neonCyan transition-colors">FAQ</a>
+            </nav>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="md:hidden flex items-center">
+                <button id="menu-btn" class="text-slate-300 hover:text-neonCyan focus:outline-none p-2 rounded-xl glass-panel" aria-label="Toggle Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="absolute top-20 left-0 right-0 glass-panel border-b border-cyan-500/20 transform -translate-y-full opacity-0 pointer-events-none transition-all duration-300 ease-in-out md:hidden shadow-2xl max-h-[80vh] overflow-y-auto">
+            <div class="px-6 py-6 space-y-4">
+                <a href="index.html" class="block text-slate-300 hover:text-neonCyan transition-colors text-sm tracking-wide">Home</a>
+                <a href="syllabus.html" class="block text-slate-300 hover:text-neonCyan transition-colors text-sm tracking-wide">Syllabus</a>
+                
+                <div class="space-y-2">
+                    <button id="mobile-sites-btn" class="flex items-center justify-between w-full text-slate-300 hover:text-neonCyan transition-colors text-sm tracking-wide font-medium py-1">
+                        <span>Sites Grid</span>
+                        <svg id="mobile-sites-arrow" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="mobile-sites-dropdown" class="hidden pl-4 space-y-2 border-l border-cyan-500/20 my-2">
+                        <a href="site1.html" class="block text-xs text-slate-300 hover:text-neonCyan py-1.5">Site 01: Programming Basics</a>
+                        <a href="site2.html" class="block text-xs text-slate-300 hover:text-neonCyan py-1.5">Site 02: VS Code Configuration</a>
+                        <a href="site3.html" class="block text-xs text-slate-300 hover:text-neonCyan py-1.5">Site 03: Core Web Development</a>
+                        <a href="site4.html" class="block text-xs text-slate-300 hover:text-neonCyan py-1.5">Site 04: The Coding Community</a>
+                        <a href="site5.html" class="block text-xs text-slate-300 hover:text-neonCyan py-1.5">Site 05: Git & GitHub Collaboration</a>
+                        <a href="site6.html" class="block text-xs text-slate-300 hover:text-neonCyan py-1.5">Site 06: Competitive Programming Training</a>
+                        <a href="site7.html" class="block text-xs text-slate-300 hover:text-neonCyan py-1.5">Site 07: AI Assistance for Developers</a>
+                        <a href="site8.html" class="block text-xs text-slate-300 hover:text-neonCyan py-1.5">Site 08: Career Possibilities & Market Values</a>
+                        <a href="site9.html" class="block text-xs text-slate-300 hover:text-neonCyan py-1.5">Site 09: Double-Helix Future</a>
+                        <a href="site10.html" class="block text-xs text-slate-300 hover:text-neonCyan py-1.5">Site 10: Project Showroom & Capstone</a>
+                    </div>
+                </div>
+
+                <a href="document.html" class="block text-slate-300 hover:text-neonCyan transition-colors text-sm tracking-wide">Document</a>
+                <a href="why.html" class="block text-neonCyan font-bold text-sm tracking-wide">Why</a>
+                <a href="faq.html" class="block text-slate-300 hover:text-neonCyan transition-colors text-sm tracking-wide">FAQ</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-20">
+
+        <!-- Hero Header -->
+        <section class="relative py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center space-y-6">
+            <div class="inline-flex items-center space-x-2 px-5 py-2 rounded-full glass-panel border border-cyan-500/30 text-neonCyan text-xs sm:text-sm font-space tracking-widest uppercase shadow-lg shadow-cyan-500/10">
+                <span>⚡ Strategic Advantage & Core Benefits</span>
+            </div>
+            <h1 class="font-space font-bold text-4xl sm:text-6xl tracking-tight text-white leading-tight">
+                Why Choose <span class="text-transparent bg-clip-text bg-gradient-to-r from-neonCyan to-electricViolet glow-text">Olympiad Edge</span>?
+            </h1>
+            <p class="max-w-3xl mx-auto text-base sm:text-lg text-slate-300 font-light leading-relaxed justified-text">
+                Traditional education teaches you how to memorize syntax for exams, but the modern digital economy rewards builders who master rigorous algorithmic logic alongside practical software engineering. Explore the six core pillars that give our students an unfair competitive advantage in the global market.
+            </p>
+        </section>
+
+        <!-- 6 Distinct Strategic Sections -->
+        <section class="reveal-section pb-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto space-y-16">
+
+            <!-- Section 1: Dual-Helix Mastery -->
+            <div class="glass-panel rounded-3xl p-6 sm:p-10 border border-cyan-500/30 relative overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-4">
+                    <span class="text-neonCyan font-space font-bold text-xs tracking-widest uppercase">Pillar 01 • Philosophy</span>
+                    <h2 class="font-space font-bold text-2xl sm:text-3xl text-white">The Power of Dual-Helix Synergy</h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed justified-text">
+                        Most technical training splits developers into two isolated camps: theoretical competitive programmers who struggle to build user interfaces, and practical web developers who lack deep algorithmic efficiency. Olympiad Edge shatters this false dichotomy by merging high-speed contest logic with robust full-stack production architecture. You learn not only how to write code that solves complex mathematical equations instantly under strict time constraints, but also how to package those algorithms into beautiful, scalable web applications that serve millions of users seamlessly across global cloud networks.
+                    </p>
+                </div>
+                <div>
+                    <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg" alt="Dual-Helix Mastery" class="w-full h-64 sm:h-80 object-cover rounded-2xl border border-cyan-500/20 shadow-lg">
+                </div>
+            </div>
+
+            <!-- Section 2: Elite Career Possibilities -->
+            <div class="glass-panel rounded-3xl p-6 sm:p-10 border border-cyan-500/30 relative overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="order-2 md:order-1">
+                    <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg" alt="Elite Career Possibilities" class="w-full h-64 sm:h-80 object-cover rounded-2xl border border-cyan-500/20 shadow-lg">
+                </div>
+                <div class="order-1 md:order-2 space-y-4">
+                    <span class="text-neonCyan font-space font-bold text-xs tracking-widest uppercase">Pillar 02 • Horizons</span>
+                    <h2 class="font-space font-bold text-2xl sm:text-3xl text-white">Unlocking Global Career Trajectories</h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed justified-text">
+                        Graduating from our program opens doors to elite professional roles that ordinary bootcamps cannot reach. Top-tier technology companies, quantitative trading firms, and venture-backed AI research labs actively hunt for engineers who possess superior problem-solving agility and raw computational intuition. Whether you aim to architect massive enterprise backend systems, pioneer next-generation artificial intelligence models, or launch your own high-valuation startup, the strategic foundation you gain here positions you in the top tier of global compensation and leadership opportunities.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 3: Next-Gen AI Integration -->
+            <div class="glass-panel rounded-3xl p-6 sm:p-10 border border-cyan-500/30 relative overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-4">
+                    <span class="text-neonCyan font-space font-bold text-xs tracking-widest uppercase">Pillar 03 • Technology</span>
+                    <h2 class="font-space font-bold text-2xl sm:text-3xl text-white">Mastering AI as a Force Multiplier</h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed justified-text">
+                        Artificial intelligence is radically transforming the software industry, rendering traditional coding instruction obsolete. Rather than competing against automated tools or relying on them blindly, our curriculum trains you to become an elite supervisor of artificial intelligence. You will master advanced prompt engineering, automated code refactoring, and secure architectural auditing using cutting-edge models and development environments like Cursor and Claude. This empowers you to build complex software products at ten times the speed of traditional developers while maintaining flawless code quality.
+                    </p>
+                </div>
+                <div>
+                    <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg" alt="Next-Gen AI Integration" class="w-full h-64 sm:h-80 object-cover rounded-2xl border border-cyan-500/20 shadow-lg">
+                </div>
+            </div>
+
+            <!-- Section 4: Unmatched Facilities & Workflows -->
+            <div class="glass-panel rounded-3xl p-6 sm:p-10 border border-cyan-500/30 relative overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="order-2 md:order-1">
+                    <img src="https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg" alt="Unmatched Facilities & Workflows" class="w-full h-64 sm:h-80 object-cover rounded-2xl border border-cyan-500/20 shadow-lg">
+                </div>
+                <div class="order-1 md:order-2 space-y-4">
+                    <span class="text-neonCyan font-space font-bold text-xs tracking-widest uppercase">Pillar 04 • Infrastructure</span>
+                    <h2 class="font-space font-bold text-2xl sm:text-3xl text-white">Professional Workstation Facilities</h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed justified-text">
+                        Amateurs waste precious cognitive energy wrestling with broken compiler setups, unorganized file systems, and sluggish IDEs. Olympiad Edge provides a meticulously curated facility blueprint, guiding you through professional VS Code optimization, custom keybindings, terminal shortcuts, and Git collaboration pipelines. You operate in a zero-latency development environment designed for maximum productivity. By eliminating friction from your daily workflow, every ounce of your mental focus remains dedicated entirely to solving intricate logical puzzles and creating innovative software solutions.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 5: Global Community Synergy -->
+            <div class="glass-panel rounded-3xl p-6 sm:p-10 border border-cyan-500/30 relative overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-4">
+                    <span class="text-neonCyan font-space font-bold text-xs tracking-widest uppercase">Pillar 05 • Ecosystem</span>
+                    <h2 class="font-space font-bold text-2xl sm:text-3xl text-white">Vibrant Peer Synergy & Accountability</h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed justified-text">
+                        Coding in isolation is an exhausting and slow endeavor that leads to burnout. Our ecosystem surrounds you with an ambitious, global community of passionate peers and seasoned mentors who share your relentless drive for excellence. Through collaborative hackathons, rigorous code reviews, and active contest discussions, you benefit from collective intelligence and unbreakable peer accountability. This supportive yet competitive atmosphere keeps your motivation surging, ensuring you persist through challenging algorithmic plateaus and emerge as a resilient software engineer.
+                    </p>
+                </div>
+                <div>
+                    <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg" alt="Global Community Synergy" class="w-full h-64 sm:h-80 object-cover rounded-2xl border border-cyan-500/20 shadow-lg">
+                </div>
+            </div>
+
+            <!-- Section 6: Proven Track Record & Legacy -->
+            <div class="glass-panel rounded-3xl p-6 sm:p-10 border border-cyan-500/30 relative overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="order-2 md:order-1">
+                    <img src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg" alt="Proven Track Record & Legacy" class="w-full h-64 sm:h-80 object-cover rounded-2xl border border-cyan-500/20 shadow-lg">
+                </div>
+                <div class="order-1 md:order-2 space-y-4">
+                    <span class="text-neonCyan font-space font-bold text-xs tracking-widest uppercase">Pillar 06 • Legacy</span>
+                    <h2 class="font-space font-bold text-2xl sm:text-3xl text-white">Building an Enduring Engineering Legacy</h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed justified-text">
+                        The ultimate benefit of joining Olympiad Edge extends far beyond acquiring technical certificates or winning contest medals—it is about cementing a lifelong engineering legacy. Our curriculum instills a deep sense of craftsmanship, ethical responsibility, and leadership in technology. You learn how to architect systems that endure, mentor the next generation of upcoming programmers, and tackle meaningful real-world problems. By transforming from a passive consumer of digital tools into an active master builder, you secure an empowered future where you dictate the trajectory of your professional destiny.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-20 border-t border-cyan-500/15 bg-panelDark/90 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">
+                <div class="flex flex-col space-y-2 items-center md:items-start">
+                    <div class="flex items-center space-x-3">
+                        <img src="Logo.jpg" alt="Olympiad Edge Symbol" class="w-8 h-8 rounded-xl object-cover border border-cyan-400/50">
+                        <span class="font-space font-bold text-base tracking-wide text-white">OLYMPIAD <span class="text-neonCyan">EDGE</span></span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-400 italic">“Stop consuming the digital world. Architect your own empire.”</p>
+                </div>
+
+                <div class="flex justify-center space-x-4">
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-neonCyan transition-colors p-3 glass-panel rounded-full" aria-label="GitHub">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-neonCyan transition-colors p-3 glass-panel rounded-full" aria-label="LinkedIn">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-neonCyan transition-colors p-3 glass-panel rounded-full" aria-label="Twitter">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="mailto:contact@olympiadedge.com" class="text-slate-400 hover:text-neonCyan transition-colors p-3 glass-panel rounded-full" aria-label="Email">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </a>
+                </div>
+
+                <div class="flex flex-col items-center md:items-end space-y-1">
+                    <p class="text-xs sm:text-sm text-slate-400">© 2026 Olympiad Edge. All rights reserved.</p>
+                    <a href="https://rayaantasnim.github.io/Rayaan-Tasnim/" target="_blank" rel="noopener noreferrer" class="text-xs sm:text-sm text-neonCyan hover:underline font-medium">Prepared by Rayaan Tasnim</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts for Mobile Menu -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileSitesBtn = document.getElementById('mobile-sites-btn');
+        const mobileSitesDropdown = document.getElementById('mobile-sites-dropdown');
+        const mobileSitesArrow = document.getElementById('mobile-sites-arrow');
+
+        let isMenuOpen = false;
+        menuBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+                menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+            } else {
+                mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            }
+        });
+
+        let isSitesOpen = false;
+        mobileSitesBtn.addEventListener('click', () => {
+            isSitesOpen = !isSitesOpen;
+            if (isSitesOpen) {
+                mobileSitesDropdown.classList.remove('hidden');
+                mobileSitesArrow.classList.add('rotate-180');
+            } else {
+                mobileSitesDropdown.classList.add('hidden');
+                mobileSitesArrow.classList.remove('rotate-180');
+            }
+        });
+    </script>
+
+    <!-- Three.js Starfield Background -->
+    <script>
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 2000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        container.appendChild(renderer.domElement);
+
+        const particlesCount = 2500;
+        const posArray = new Float32Array(particlesCount * 3);
+        const colorArray = new Float32Array(particlesCount * 3);
+
+        for(let i = 0; i < particlesCount * 3; i += 3) {
+            posArray[i] = (Math.random() - 0.5) * 1400;
+            posArray[i+1] = (Math.random() - 0.5) * 1400;
+            posArray[i+2] = (Math.random() - 0.5) * 1400;
+
+            if(Math.random() > 0.4) {
+                colorArray[i] = 0;     
+                colorArray[i+1] = 0.94;
+                colorArray[i+2] = 1;   
+            } else {
+                colorArray[i] = 0.54;  
+                colorArray[i+1] = 0;   
+                colorArray[i+2] = 1;   
+            }
+        }
+
+        const particlesGeometry = new THREE.BufferGeometry();
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colorArray, 3));
+
+        const particlesMaterial = new THREE.PointsMaterial({
+            size: 2.5,
+            vertexColors: true,
+            transparent: true,
+            opacity: 0.85,
+            blending: THREE.AdditiveBlending
+        });
+
+        const starField = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(starField);
+
+        camera.position.z = 400;
+
+        let mouseX = 0;
+        let mouseY = 0;
+        let targetX = 0;
+        let targetY = 0;
+
+        document.addEventListener('mousemove', (event) => {
+            mouseX = (event.clientX - window.innerWidth / 2) * 0.03;
+            mouseY = (event.clientY - window.innerHeight / 2) * 0.03;
+        });
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            targetX += (mouseX - targetX) * 0.04;
+            targetY += (mouseY - targetY) * 0.04;
+
+            starField.rotation.y += 0.0005;
+            starField.rotation.x += 0.0002;
+
+            camera.position.x += (targetX - camera.position.x) * 0.05;
+            camera.position.y += (-targetY - camera.position.y) * 0.05;
+            camera.lookAt(scene.position);
+
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+
+    <!-- GSAP ScrollTrigger Animations -->
+    <script>
+        document.addEventListener("DOMContentLoaded", (event) => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            const sections = document.querySelectorAll('.reveal-section');
+            sections.forEach((section) => {
+                gsap.to(section, {
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top 88%",
+                        toggleActions: "play none none none"
+                    },
+                    opacity: 1,
+                    y: 0,
+                    duration: 1.0,
+                    ease: "power3.out"
+                });
+            });
+        });
+    </script>
+</body>
+</html>

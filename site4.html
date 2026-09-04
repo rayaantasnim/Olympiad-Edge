@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site 04: The Coding Community • Olympiad Edge</title>
+    
+    <meta name="description" content="Explore the power of developer ecosystems, team collaboration, GitHub workflows, Discord communities, and recommended coding platforms with Site 04 of Olympiad Edge.">
+    <meta name="keywords" content="Olympiad Edge, Coding Community, Team Collaboration, GitHub, Discord, Stack Overflow, CodeWars">
+    <meta name="author" content="Rayaan Tasnim">
+    <meta name="robots" content="index, follow">
+
+    <link rel="icon" type="image/x-icon" href="Favicon.ico">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cosmicBg: '#070913',
+                        panelDark: '#0e1526',
+                        panelGlass: 'rgba(14, 21, 38, 0.85)',
+                        neonCyan: '#00f0ff',
+                        electricViolet: '#8a00ff',
+                        deepBlue: '#131b31'
+                    },
+                    fontFamily: {
+                        space: ['Space Grotesk', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Three.js Library for Cosmic Background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- GSAP for Smooth Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        body {
+            background-color: #070913;
+            color: #e2e8f0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+        }
+        .font-space {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .glass-panel {
+            background: rgba(14, 21, 38, 0.78);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(0, 240, 255, 0.18);
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.7);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-panel:hover {
+            border-color: rgba(0, 240, 255, 0.45);
+            box-shadow: 0 20px 50px -15px rgba(0, 240, 255, 0.2);
+        }
+        .glow-text {
+            text-shadow: 0 0 30px rgba(0, 240, 255, 0.6);
+        }
+        .reveal-section {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+            hyphens: auto;
+        }
+    </style>
+</head>
+<body class="bg-cosmicBg text-slate-100 min-h-screen flex flex-col selection:bg-neonCyan selection:text-cosmicBg">
+
+    <!-- Three.js Cosmic Starfield Background -->
+    <div id="canvas-container"></div>
+
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-cyan-500/15">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <img src="Logo.jpg" alt="Olympiad Edge Logo" class="w-10 h-10 rounded-xl object-cover border border-cyan-400/50 shadow-md">
+                <a href="index.html" class="font-space font-bold text-lg sm:text-xl tracking-wide text-white flex items-center space-x-2">
+                    <span>OLYMPIAD <span class="text-neonCyan">EDGE</span></span>
+                </a>
+            </div>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm tracking-wide">
+                <a href="index.html" class="text-slate-300 hover:text-neonCyan transition-colors">Home</a>
+                <a href="syllabus.html" class="text-slate-300 hover:text-neonCyan transition-colors">Syllabus</a>
+                <div class="relative group">
+                    <button class="flex items-center space-x-1 text-slate-300 hover:text-neonCyan transition-colors focus:outline-none py-2">
+                        <span>Sites Grid</span>
+                        <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="absolute top-full left-[-160px] w-80 glass-panel rounded-2xl shadow-2xl py-3 mt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 max-h-[75vh] overflow-y-auto">
+                        <a href="site1.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 01: Programming Basics</a>
+                        <a href="site2.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 02: VS Code Configuration</a>
+                        <a href="site3.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 03: Core Web Development</a>
+                        <a href="site4.html" class="block px-5 py-2.5 text-xs text-neonCyan bg-cyan-500/10 font-bold transition-colors border-b border-slate-800/80">Site 04: The Coding Community</a>
+                        <a href="site5.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 05: Git & GitHub Collaboration</a>
+                        <a href="site6.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 06: Competitive Programming Training</a>
+                        <a href="site7.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 07: AI Assistance for Developers</a>
+                        <a href="site8.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 08: Career Possibilities & Market Values</a>
+                        <a href="site9.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 09: Double-Helix Future</a>
+                        <a href="site10.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors">Site 10: Project Showroom & Capstone</a>
+                    </div>
+                </div>
+                <a href="document.html" class="text-slate-300 hover:text-neonCyan transition-colors">Document</a>
+                <a href="why.html" class="text-slate-300 hover:text-neonCyan transition-colors">Why</a>
+                <a href="faq.html" class="text-slate-300 hover:text-neonCyan transition-colors">FAQ</a>
+            </nav>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="md:hidden flex items-center">
+                <button id="menu-btn" class="text-slate-300 hover:text-neonCyan focus:outline-none p-2 rounded-xl glass-panel" aria-label="Toggle Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="absolute top-20 left-0 right-0 glass-panel border-b border-cyan-500/20 transform -translate-y-full opacity-0 pointer-events-none transition-all duration-300 ease-in-out md:hidden shadow-2xl max-h-[80vh] overflow-y-auto">
+            <div class="px-6 py-6 space-y-4">
+                <a href="index.html" class="block text-slate-300 hover:text-neonCyan transition-colors text-sm tracking-wide">Home</a>
+                <a href="syllabus.html" class="block text-slate-300 hover:text-neonCyan transition-colors text-sm tracking-wide">Syllabus</a>
+                
+                <div class="space-y-2">
+                    <button id="mobile-sites-btn" class="flex items-center justify-between w-full text-slate-300 hover:text-neonCyan transition-colors text-sm tracking-wide font-medium py-1">
+                        <span>Sites Grid</span>
+                        <svg id="mobile-sites-arrow" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="mobile-sites-dropdown" class="hidden pl-4 space-y-2 border-l border-cyan-500/20 my-2">
+                        <a href="site1.html" class="block text-xs text-slate-300 hover:text-neonCyan py-1.5">Site 01: Programming Basics</a>
+                        <a href="site2.html" class="block text-xs text-slate-300 hover:text-neonCyan py-1.5">Site 02: VS Code Configuration</a>
+                        <a href="site3.html" class="block text-xs text-slate-300 hover:text-neonCyan py-1.5">Site 03: Core Web Development</a>
+                        <a href="site4.html" class="block text-xs text-neonCyan font-bold py-1.5">Site 04: The Coding Community</a>
+                        <a href="site5.html" class="block text-xs text-slate-300 hover:text-neonCyan py-1.5">Site 05: Git & GitHub Collaboration</a>
+                        <a href="site6.html" class="block text-xs text-slate-300 hover:text-neonCyan py-1.5">Site 06: Competitive Programming Training</a>
+                        <a href="site7.html" class="block text-xs text-slate-300 hover:text-neonCyan py-1.5">Site 07: AI Assistance for Developers</a>
+                        <a href="site8.html" class="block text-xs text-slate-300 hover:text-neonCyan py-1.5">Site 08: Career Possibilities & Market Values</a>
+                        <a href="site9.html" class="block text-xs text-slate-300 hover:text-neonCyan py-1.5">Site 09: Double-Helix Future</a>
+                        <a href="site10.html" class="block text-xs text-slate-300 hover:text-neonCyan py-1.5">Site 10: Project Showroom & Capstone</a>
+                    </div>
+                </div>
+
+                <a href="document.html" class="block text-slate-300 hover:text-neonCyan transition-colors text-sm tracking-wide">Document</a>
+                <a href="why.html" class="block text-slate-300 hover:text-neonCyan transition-colors text-sm tracking-wide">Why</a>
+                <a href="faq.html" class="block text-slate-300 hover:text-neonCyan transition-colors text-sm tracking-wide">FAQ</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-24 sm:pt-28">
+
+        <!-- 1. Hero Banner / Intro Section -->
+        <section class="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center space-y-6">
+            <div class="inline-flex items-center space-x-2 px-4 sm:px-5 py-2 rounded-full glass-panel border border-cyan-500/30 text-neonCyan text-xs sm:text-sm font-space tracking-widest uppercase shadow-lg shadow-cyan-500/15">
+                <span>⚡ Collaborative Developer Ecosystems</span>
+            </div>
+            <h1 class="font-space font-bold text-3xl sm:text-5xl md:text-6xl tracking-tight text-white leading-tight">
+                Empowering Growth Through <span class="text-transparent bg-clip-text bg-gradient-to-r from-neonCyan to-cyan-200 glow-text">Coding Community</span>
+            </h1>
+            <p class="max-w-3xl mx-auto text-sm sm:text-base md:text-lg text-slate-300 font-light leading-relaxed justified-text px-2">
+                Programming is rarely a solitary endeavor. True engineering excellence flourishes when passionate builders unite, share knowledge, review peer code, and build remarkable projects together across global digital ecosystems.
+            </p>
+        </section>
+
+        <!-- Content Container with Responsive Spacing -->
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16 pb-20 sm:pb-32">
+
+            <!-- 2. Importance of Community (Point by Point) -->
+            <section id="importance" class="reveal-section glass-panel rounded-3xl p-6 sm:p-10 border border-cyan-500/30 space-y-8">
+                <div class="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
+                    <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-neonCyan font-space font-bold text-lg shrink-0">01</div>
+                    <div>
+                        <h2 class="font-space text-xl sm:text-2xl font-bold text-white">Importance of Coding Communities</h2>
+                        <p class="text-xs font-space text-cyan-400 uppercase tracking-widest mt-1">Why Collective Growth Matters</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div class="space-y-4">
+                        <div class="glass-panel p-5 rounded-2xl space-y-2 border border-cyan-500/10">
+                            <h3 class="font-space font-bold text-white text-base flex items-center space-x-2">
+                                <span class="text-neonCyan">▸</span> <span>Accelerated Problem Solving</span>
+                            </h3>
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed justified-text">
+                                When stuck on baffling bugs or obscure compiler errors, consulting an active community saves countless hours of isolated frustration.
+                            </p>
+                        </div>
+                        <div class="glass-panel p-5 rounded-2xl space-y-2 border border-cyan-500/10">
+                            <h3 class="font-space font-bold text-white text-base flex items-center space-x-2">
+                                <span class="text-neonCyan">▸</span> <span>Constructive Feedback & Code Reviews</span>
+                            </h3>
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed justified-text">
+                                Peer reviews expose developers to cleaner design patterns, optimized algorithms, and professional formatting standards.
+                            </p>
+                        </div>
+                        <div class="glass-panel p-5 rounded-2xl space-y-2 border border-cyan-500/10">
+                            <h3 class="font-space font-bold text-white text-base flex items-center space-x-2">
+                                <span class="text-neonCyan">▸</span> <span>Shared Motivation & Accountability</span>
+                            </h3>
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed justified-text">
+                                Engaging with peers tackling similar challenges fosters healthy competition and consistent daily learning habits.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="relative rounded-2xl overflow-hidden border border-cyan-500/20 shadow-2xl group">
+                        <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Developers collaborating" class="w-full h-64 sm:h-72 object-cover group-hover:scale-105 transition-transform duration-500 opacity-85">
+                        <div class="absolute inset-0 bg-gradient-to-t from-cosmicBg via-transparent to-transparent"></div>
+                        <span class="absolute bottom-3 left-3 text-[10px] font-space text-neonCyan bg-panelDark/80 px-2.5 py-1 rounded-full border border-cyan-500/30">Pexels Stock: Team Brainstorming</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Team Collaboration Significance -->
+            <section id="team-collab" class="reveal-section glass-panel rounded-3xl p-6 sm:p-10 border border-cyan-500/30 space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
+                    <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-neonCyan font-space font-bold text-lg shrink-0">02</div>
+                    <div>
+                        <h2 class="font-space text-xl sm:text-2xl font-bold text-white">Team Collaboration Significance</h2>
+                        <p class="text-xs font-space text-cyan-400 uppercase tracking-widest mt-1">Building Production-Grade Software</p>
+                    </div>
+                </div>
+
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed justified-text">
+                    In modern software engineering, individual brilliance takes second place to cohesive teamwork. Large-scale applications require distinct minds working in synchrony across frontend, backend, database architecture, and deployment pipelines.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div class="glass-panel p-6 rounded-2xl space-y-3 border border-cyan-500/10">
+                        <h3 class="font-space font-bold text-white text-base">Division of Labor</h3>
+                        <p class="text-xs sm:text-sm text-slate-300 justified-text">
+                            Complex projects are decomposed into modular components assigned to specialists, maximizing productivity and minimizing delivery times.
+                        </p>
+                    </div>
+                    <div class="glass-panel p-6 rounded-2xl space-y-3 border border-cyan-500/10">
+                        <h3 class="font-space font-bold text-white text-base">Collective Intelligence</h3>
+                        <p class="text-xs sm:text-sm text-slate-300 justified-text">
+                            Diverse perspectives uncover blind spots in system design, ensuring robust security, scalability, and optimal user experiences.
+                        </p>
+                    </div>
+                    <div class="glass-panel p-6 rounded-2xl space-y-3 border border-cyan-500/10">
+                        <h3 class="font-space font-bold text-white text-base">Industry Readiness</h3>
+                        <p class="text-xs sm:text-sm text-slate-300 justified-text">
+                            Working in development teams prepares students for professional software engineering environments and agile sprint cycles.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. GitHub Collaboration Procedure -->
+            <section id="github-workflow" class="reveal-section glass-panel rounded-3xl p-6 sm:p-10 border border-cyan-500/30 space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
+                    <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-neonCyan font-space font-bold text-lg shrink-0">03</div>
+                    <div>
+                        <h2 class="font-space text-xl sm:text-2xl font-bold text-white">GitHub Collaboration Procedure</h2>
+                        <p class="text-xs font-space text-cyan-400 uppercase tracking-widest mt-1">Version Control & Workflow Best Practices</p>
+                    </div>
+                </div>
+
+                <div class="relative rounded-2xl overflow-hidden border border-cyan-500/20 shadow-xl mb-6">
+                    <img src="https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Code Collaboration Pexels" class="w-full h-44 sm:h-52 object-cover opacity-75">
+                    <div class="absolute inset-0 bg-gradient-to-r from-cosmicBg via-cosmicBg/80 to-transparent flex items-center p-5 sm:p-8">
+                        <div class="max-w-lg space-y-2">
+                            <span class="text-[10px] font-space text-neonCyan uppercase tracking-widest bg-cyan-500/10 px-2.5 py-1 rounded border border-cyan-500/30">Standard Workflow</span>
+                            <h3 class="font-space text-base sm:text-xl font-bold text-white">From Forking to Pull Request Merging</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="glass-panel p-6 rounded-2xl space-y-3 border border-cyan-500/10">
+                        <div class="text-neonCyan font-space font-bold text-base">Step 1: Fork & Clone</div>
+                        <p class="text-xs sm:text-sm text-slate-300 justified-text">
+                            Fork the repository to your personal account and clone it locally using <code class="text-neonCyan bg-panelDark px-1 py-0.5 rounded text-xs">git clone</code>.
+                        </p>
+                    </div>
+                    <div class="glass-panel p-6 rounded-2xl space-y-3 border border-cyan-500/10">
+                        <div class="text-neonCyan font-space font-bold text-base">Step 2: Create Branch</div>
+                        <p class="text-xs sm:text-sm text-slate-300 justified-text">
+                            Always create a dedicated feature branch with <code class="text-neonCyan bg-panelDark px-1 py-0.5 rounded text-xs">git checkout -b feature-name</code>.
+                        </p>
+                    </div>
+                    <div class="glass-panel p-6 rounded-2xl space-y-3 border border-cyan-500/10">
+                        <div class="text-neonCyan font-space font-bold text-base">Step 3: Commit & Push</div>
+                        <p class="text-xs sm:text-sm text-slate-300 justified-text">
+                            Stage changes, write clear commit messages, and push your branch back to GitHub using <code class="text-neonCyan bg-panelDark px-1 py-0.5 rounded text-xs">git push origin</code>.
+                        </p>
+                    </div>
+                    <div class="glass-panel p-6 rounded-2xl space-y-3 border border-cyan-500/10">
+                        <div class="text-neonCyan font-space font-bold text-base">Step 4: Pull Request</div>
+                        <p class="text-xs sm:text-sm text-slate-300 justified-text">
+                            Open a Pull Request (PR) for peer code review, discussion, and final merging into the main production branch.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. Discord Coding Community -->
+            <section id="discord-community" class="reveal-section glass-panel rounded-3xl p-6 sm:p-10 border border-cyan-500/30 space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
+                    <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-neonCyan font-space font-bold text-lg shrink-0">04</div>
+                    <div>
+                        <h2 class="font-space text-xl sm:text-2xl font-bold text-white">Discord Coding Communities</h2>
+                        <p class="text-xs font-space text-cyan-400 uppercase tracking-widest mt-1">Real-Time Interaction & Voice Channels</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div class="space-y-4">
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed justified-text">
+                            Discord has become the premier real-time hub for programmers worldwide. Dedicated servers offer instant help channels, voice study rooms, community project showcases, and direct networking with mentors and industry experts.
+                        </p>
+                        <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                            <li class="flex items-center space-x-2"><span class="text-neonCyan">✓</span> <span>Instant Q&A channels for Python, C++, and Web Development</span></li>
+                            <li class="flex items-center space-x-2"><span class="text-neonCyan">✓</span> <span>Screen-sharing and pair-programming voice rooms</span></li>
+                            <li class="flex items-center space-x-2"><span class="text-neonCyan">✓</span> <span>Weekly hackathons and coding challenge announcements</span></li>
+                        </ul>
+                    </div>
+                    <div class="glass-panel p-6 rounded-2xl border border-cyan-500/20 space-y-4 text-center">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-indigo-500/20 border border-indigo-400/40 flex items-center justify-center text-indigo-300 text-2xl font-bold font-space">
+                            💬
+                        </div>
+                        <h3 class="font-space font-bold text-white text-lg">Join the Olympiad Edge Hub</h3>
+                        <p class="text-xs text-slate-300 justified-text">
+                            Connect with fellow participants, share your project updates, and collaborate on advanced challenges inside our official server.
+                        </p>
+                        <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-space font-bold text-xs uppercase tracking-wider transition-colors shadow-lg shadow-indigo-600/30">
+                            Open Discord Portal
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. PDF Downloading Option -->
+            <section id="document-download" class="reveal-section space-y-6">
+                <div class="space-y-2">
+                    <div class="flex items-center space-x-3">
+                        <span class="font-space font-bold text-2xl sm:text-3xl text-neonCyan">05.</span>
+                        <h2 class="font-space font-bold text-2xl sm:text-3xl text-white tracking-tight">Official Curriculum Document Download</h2>
+                    </div>
+                    <p class="text-slate-300 text-sm sm:text-base font-light pl-9">
+                        Access the complete reference guide directly from the root repository folder.
+                    </p>
+                </div>
+
+                <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-cyan-500/30 relative overflow-hidden">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
+                        <div class="space-y-3 max-w-xl">
+                            <span class="inline-block px-3 py-1 rounded-full text-xs font-space text-neonCyan bg-cyan-500/10 border border-cyan-500/30">
+                                Root Folder Document
+                            </span>
+                            <h3 class="font-space font-bold text-xl sm:text-2xl text-white tracking-wide">
+                                Coding Platforms.pdf
+                            </h3>
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed justified-text">
+                                Download the comprehensive reference manual covering top community hubs, developer platforms, contribution guides, and networking strategies.
+                            </p>
+                        </div>
+                        <div class="shrink-0 flex items-center">
+                            <a href="Coding Platforms.pdf" download="Coding Platforms.pdf" class="inline-flex items-center justify-center space-x-3 px-6 py-4 rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-600 text-slate-950 font-space font-bold text-sm tracking-wide shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 hover:scale-[1.02] transition-all duration-300 w-full md:w-auto">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                                </svg>
+                                <span class="text-white">DOWNLOAD PDF</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. Recommended Platforms -->
+            <section id="recommended-platforms" class="reveal-section glass-panel rounded-3xl p-6 sm:p-10 border border-cyan-500/30 space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
+                    <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-neonCyan font-space font-bold text-lg shrink-0">06</div>
+                    <div>
+                        <h2 class="font-space text-xl sm:text-2xl font-bold text-white">Recommended Platforms</h2>
+                        <p class="text-xs font-space text-cyan-400 uppercase tracking-widest mt-1">Essential Ecosystems for Every Developer</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="glass-panel p-6 rounded-2xl space-y-3 border border-cyan-500/10">
+                        <div class="flex items-center justify-between">
+                            <h3 class="font-space font-bold text-white text-base">GitHub</h3>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-cyan-500/10 text-neonCyan font-space">Hosting</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-300 justified-text">
+                            The world's leading platform for version control, open-source contribution, project portfolio hosting, and team collaboration.
+                        </p>
+                    </div>
+
+                    <div class="glass-panel p-6 rounded-2xl space-y-3 border border-cyan-500/10">
+                        <div class="flex items-center justify-between">
+                            <h3 class="font-space font-bold text-white text-base">Discord</h3>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-cyan-500/10 text-neonCyan font-space">Real-time</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-300 justified-text">
+                            Real-time voice and text chat communities dedicated to programming languages, framework support, and peer networking.
+                        </p>
+                    </div>
+
+                    <div class="glass-panel p-6 rounded-2xl space-y-3 border border-cyan-500/10">
+                        <div class="flex items-center justify-between">
+                            <h3 class="font-space font-bold text-white text-base">Stack Overflow</h3>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-cyan-500/10 text-neonCyan font-space">Q & A</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-300 justified-text">
+                            The definitive community Q&A repository for troubleshooting syntax errors, algorithmic challenges, and configuration hurdles.
+                        </p>
+                    </div>
+
+                    <div class="glass-panel p-6 rounded-2xl space-y-3 border border-cyan-500/10">
+                        <div class="flex items-center justify-between">
+                            <h3 class="font-space font-bold text-white text-base">DEV Community</h3>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-cyan-500/10 text-neonCyan font-space">Blogs</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-300 justified-text">
+                            An inclusive constructive social network where developers share articles, tutorials, personal experiences, and career advice.
+                        </p>
+                    </div>
+
+                    <div class="glass-panel p-6 rounded-2xl space-y-3 border border-cyan-500/10 sm:col-span-2 lg:col-span-1">
+                        <div class="flex items-center justify-between">
+                            <h3 class="font-space font-bold text-white text-base">CodeWars</h3>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-cyan-500/10 text-neonCyan font-space">Practice</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-300 justified-text">
+                            A gamified martial-arts themed community platform to train coding skills through community-authored Kata challenges.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="pt-4 text-center">
+                    <a href="index.html" class="inline-flex px-6 py-3 rounded-xl bg-neonCyan text-cosmicBg font-space font-bold text-xs uppercase tracking-wider hover:bg-cyan-400 transition-colors shadow-lg shadow-cyan-500/20">
+                        Return to Main Roadmap
+                    </a>
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-20 border-t border-cyan-500/15 bg-panelDark/90 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">
+                <div class="flex flex-col space-y-2 items-center md:items-start">
+                    <div class="flex items-center space-x-3">
+                        <img src="Logo.jpg" alt="Olympiad Edge Symbol" class="w-8 h-8 rounded-xl object-cover border border-cyan-400/50">
+                        <span class="font-space font-bold text-base tracking-wide text-white">OLYMPIAD <span class="text-neonCyan">EDGE</span></span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-400 italic">“Stop consuming the digital world. Architect your own empire.”</p>
+                </div>
+
+                <div class="flex justify-center space-x-4">
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-neonCyan transition-colors p-3 glass-panel rounded-full" aria-label="GitHub">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-neonCyan transition-colors p-3 glass-panel rounded-full" aria-label="LinkedIn">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-neonCyan transition-colors p-3 glass-panel rounded-full" aria-label="Twitter">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="mailto:contact@olympiadedge.com" class="text-slate-400 hover:text-neonCyan transition-colors p-3 glass-panel rounded-full" aria-label="Email">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </a>
+                </div>
+
+                <div class="flex flex-col items-center md:items-end space-y-1">
+                    <p class="text-xs sm:text-sm text-slate-400">© 2026 Olympiad Edge. All rights reserved.</p>
+                    <a href="https://rayaantasnim.github.io/Rayaan-Tasnim/" target="_blank" rel="noopener noreferrer" class="text-xs sm:text-sm text-neonCyan hover:underline font-medium">Prepared by Rayaan Tasnim</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts for Mobile Menu -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileSitesBtn = document.getElementById('mobile-sites-btn');
+        const mobileSitesDropdown = document.getElementById('mobile-sites-dropdown');
+        const mobileSitesArrow = document.getElementById('mobile-sites-arrow');
+
+        let isMenuOpen = false;
+        menuBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+                menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+            } else {
+                mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            }
+        });
+
+        let isSitesOpen = false;
+        mobileSitesBtn.addEventListener('click', () => {
+            isSitesOpen = !isSitesOpen;
+            if (isSitesOpen) {
+                mobileSitesDropdown.classList.remove('hidden');
+                mobileSitesArrow.classList.add('rotate-180');
+            } else {
+                mobileSitesDropdown.classList.add('hidden');
+                mobileSitesArrow.classList.remove('rotate-180');
+            }
+        });
+    </script>
+
+    <!-- Three.js Starfield Background -->
+    <script>
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 2000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        container.appendChild(renderer.domElement);
+
+        const particlesCount = 2500;
+        const posArray = new Float32Array(particlesCount * 3);
+        const colorArray = new Float32Array(particlesCount * 3);
+
+        for(let i = 0; i < particlesCount * 3; i += 3) {
+            posArray[i] = (Math.random() - 0.5) * 1400;
+            posArray[i+1] = (Math.random() - 0.5) * 1400;
+            posArray[i+2] = (Math.random() - 0.5) * 1400;
+
+            if(Math.random() > 0.4) {
+                colorArray[i] = 0;     
+                colorArray[i+1] = 0.94;
+                colorArray[i+2] = 1;   
+            } else {
+                colorArray[i] = 0.54;  
+                colorArray[i+1] = 0;   
+                colorArray[i+2] = 1;   
+            }
+        }
+
+        const particlesGeometry = new THREE.BufferGeometry();
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colorArray, 3));
+
+        const particlesMaterial = new THREE.PointsMaterial({
+            size: 2.5,
+            vertexColors: true,
+            transparent: true,
+            opacity: 0.85,
+            blending: THREE.AdditiveBlending
+        });
+
+        const starField = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(starField);
+
+        camera.position.z = 400;
+
+        let mouseX = 0;
+        let mouseY = 0;
+        let targetX = 0;
+        let targetY = 0;
+
+        document.addEventListener('mousemove', (event) => {
+            mouseX = (event.clientX - window.innerWidth / 2) * 0.03;
+            mouseY = (event.clientY - window.innerHeight / 2) * 0.03;
+        });
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            targetX += (mouseX - targetX) * 0.04;
+            targetY += (mouseY - targetY) * 0.04;
+
+            starField.rotation.y += 0.0005;
+            starField.rotation.x += 0.0002;
+
+            camera.position.x += (targetX - camera.position.x) * 0.05;
+            camera.position.y += (-targetY - camera.position.y) * 0.05;
+            camera.lookAt(scene.position);
+
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+
+    <!-- GSAP ScrollTrigger Animations -->
+    <script>
+        document.addEventListener("DOMContentLoaded", (event) => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            const sections = document.querySelectorAll('.reveal-section');
+            sections.forEach((section) => {
+                gsap.to(section, {
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top 88%",
+                        toggleActions: "play none none none"
+                    },
+                    opacity: 1,
+                    y: 0,
+                    duration: 1.0,
+                    ease: "power3.out"
+                });
+            });
+        });
+    </script>
+</body>
+</html>

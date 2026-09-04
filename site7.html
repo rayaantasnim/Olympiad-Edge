@@ -3,21 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Under Maintenance • Olympiad Edge</title>
+    <title>Site 07: AI Assistance for Developers • Olympiad Edge</title>
     
-    <meta name="description" content="Olympiad Edge is currently undergoing scheduled maintenance. We will be back shortly with upgraded features and documentation.">
-    <meta name="keywords" content="Olympiad Edge, Maintenance, Rayaan Tasnim">
+    <meta name="description" content="Explore AI assistance for developers, advanced UI design with HorizonX.so, debugging importance, precise prompting, and recommended AI and learning platforms with Site 07 of Olympiad Edge.">
+    <meta name="keywords" content="Olympiad Edge, AI Assistance, Claude AI, Google Gemini, Microsoft Copilot, HorizonX, You Know Who Academy, USACO Guide">
     <meta name="author" content="Rayaan Tasnim">
     <meta name="robots" content="index, follow">
 
-    <meta property="og:title" content="Under Maintenance • Olympiad Edge">
-    <meta property="og:description" content="Olympiad Edge is currently undergoing scheduled maintenance.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://rayaantasnim.github.io/Rayaan-Tasnim/maintenance.html">
-    <meta property="og:image" content="Logo.jpg">
-
     <link rel="icon" type="image/x-icon" href="Favicon.ico">
 
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -29,27 +24,48 @@
                         panelGlass: 'rgba(14, 21, 38, 0.85)',
                         neonCyan: '#00f0ff',
                         electricViolet: '#8a00ff',
+                        deepBlue: '#131b31'
+                    },
+                    fontFamily: {
+                        space: ['Space Grotesk', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
                     }
                 }
             }
         }
     </script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Three.js Library for Cosmic Background -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- GSAP for Smooth Animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap');
-        
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: #070913;
             color: #e2e8f0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
             text-rendering: optimizeLegibility;
             -webkit-font-smoothing: antialiased;
         }
         .font-space {
             font-family: 'Space Grotesk', sans-serif;
+        }
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
         }
         .glass-panel {
             background: rgba(14, 21, 38, 0.78);
@@ -66,23 +82,6 @@
         .glow-text {
             text-shadow: 0 0 30px rgba(0, 240, 255, 0.6);
         }
-        .glow-button {
-            box-shadow: 0 0 30px rgba(0, 240, 255, 0.4);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .glow-button:hover {
-            box-shadow: 0 0 50px rgba(0, 240, 255, 0.8), 0 0 25px rgba(138, 0, 255, 0.6);
-            transform: translateY(-2px);
-        }
-        #canvas-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            pointer-events: none;
-        }
         .reveal-section {
             opacity: 0;
             transform: translateY(40px);
@@ -96,6 +95,7 @@
 </head>
 <body class="bg-cosmicBg text-slate-100 min-h-screen flex flex-col selection:bg-neonCyan selection:text-cosmicBg">
 
+    <!-- Three.js Cosmic Starfield Background -->
     <div id="canvas-container"></div>
 
     <!-- Header / Navigation -->
@@ -124,13 +124,13 @@
                         <a href="site4.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 04: The Coding Community</a>
                         <a href="site5.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 05: Git & GitHub Collaboration</a>
                         <a href="site6.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 06: Competitive Programming Training</a>
-                        <a href="site7.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 07: AI Assistance for Developers</a>
+                        <a href="site7.html" class="block px-5 py-2.5 text-xs text-neonCyan bg-cyan-500/10 font-bold transition-colors border-b border-slate-800/80">Site 07: AI Assistance for Developers</a>
                         <a href="site8.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 08: Career Possibilities & Market Values</a>
                         <a href="site9.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors border-b border-slate-800/80">Site 09: Double-Helix Future</a>
                         <a href="site10.html" class="block px-5 py-2.5 text-xs text-slate-300 hover:bg-cyan-500/10 hover:text-neonCyan transition-colors">Site 10: Project Showroom & Capstone</a>
                     </div>
                 </div>
-                <a href="documents.html" class="text-slate-300 hover:text-neonCyan transition-colors">Document</a>
+                <a href="document.html" class="text-slate-300 hover:text-neonCyan transition-colors">Document</a>
                 <a href="why.html" class="text-slate-300 hover:text-neonCyan transition-colors">Why</a>
                 <a href="faq.html" class="text-slate-300 hover:text-neonCyan transition-colors">FAQ</a>
             </nav>
@@ -163,54 +163,346 @@
                         <a href="site4.html" class="block text-xs text-slate-300 hover:text-neonCyan py-1.5">Site 04: The Coding Community</a>
                         <a href="site5.html" class="block text-xs text-slate-300 hover:text-neonCyan py-1.5">Site 05: Git & GitHub Collaboration</a>
                         <a href="site6.html" class="block text-xs text-slate-300 hover:text-neonCyan py-1.5">Site 06: Competitive Programming Training</a>
-                        <a href="site7.html" class="block text-xs text-slate-300 hover:text-neonCyan py-1.5">Site 07: AI Assistance for Developers</a>
+                        <a href="site7.html" class="block text-xs text-neonCyan font-bold py-1.5">Site 07: AI Assistance for Developers</a>
                         <a href="site8.html" class="block text-xs text-slate-300 hover:text-neonCyan py-1.5">Site 08: Career Possibilities & Market Values</a>
                         <a href="site9.html" class="block text-xs text-slate-300 hover:text-neonCyan py-1.5">Site 09: Double-Helix Future</a>
                         <a href="site10.html" class="block text-xs text-slate-300 hover:text-neonCyan py-1.5">Site 10: Project Showroom & Capstone</a>
                     </div>
                 </div>
 
-                <a href="documents.html" class="block text-slate-300 hover:text-neonCyan transition-colors text-sm tracking-wide">Document</a>
+                <a href="document.html" class="block text-slate-300 hover:text-neonCyan transition-colors text-sm tracking-wide">Document</a>
                 <a href="why.html" class="block text-slate-300 hover:text-neonCyan transition-colors text-sm tracking-wide">Why</a>
                 <a href="faq.html" class="block text-slate-300 hover:text-neonCyan transition-colors text-sm tracking-wide">FAQ</a>
             </div>
         </div>
     </header>
 
-    <main class="flex-grow pt-20 flex items-center justify-center">
+    <main class="flex-grow pt-24 sm:pt-28">
 
-        <!-- Maintenance Message Section -->
-        <section class="relative py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto text-center space-y-8 my-auto">
-            <div class="inline-flex items-center space-x-2 px-5 py-2 rounded-full glass-panel border border-cyan-500/30 text-neonCyan text-xs sm:text-sm font-space tracking-widest uppercase shadow-lg shadow-cyan-500/10">
-                <span>⚡ System Maintenance Notice</span>
+        <!-- 1. Hero Banner / Intro Section -->
+        <section class="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center space-y-6">
+            <div class="inline-flex items-center space-x-2 px-4 sm:px-5 py-2 rounded-full glass-panel border border-cyan-500/30 text-neonCyan text-xs sm:text-sm font-space tracking-widest uppercase shadow-lg shadow-cyan-500/15">
+                <span>🤖 Next-Generation Developer Workflow</span>
             </div>
-            
-            <div class="glass-panel rounded-3xl p-8 sm:p-14 border border-cyan-500/30 relative overflow-hidden space-y-6">
-                <div class="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-tr from-cyan-500/20 to-electricViolet/20 border border-cyan-400/40 flex items-center justify-center text-neonCyan shadow-[0_0_30px_rgba(0,240,255,0.3)]">
-                    <svg class="w-10 h-10 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="animation-duration: 8s;">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                    </svg>
-                </div>
-
-                <h1 class="font-space font-bold text-3xl sm:text-5xl tracking-tight text-white leading-tight">
-                    Under <span class="text-transparent bg-clip-text bg-gradient-to-r from-neonCyan to-electricViolet glow-text">Maintenance</span>
-                </h1>
-                
-                <p class="max-w-2xl mx-auto text-base sm:text-lg text-slate-300 font-light leading-relaxed justified-text">
-                    We are currently upgrading our servers, optimizing documentation infrastructure, and deploying enhanced architectural frameworks to deliver a superior learning experience. Olympiad Edge will be back online shortly. Thank you for your patience as we build a stronger coding ecosystem.
-                </p>
-
-                <div class="pt-4 flex flex-col sm:flex-row justify-center items-center gap-4">
-                    <a href="index.html" class="px-8 py-3.5 rounded-xl bg-gradient-to-r from-neonCyan via-indigo-600 to-electricViolet text-white font-space font-bold text-sm glow-button">
-                        Return to Homepage →
-                    </a>
-                    <a href="https://github.com/rayaantasnim/PDF-Booklets" target="_blank" rel="noopener noreferrer" class="px-8 py-3.5 rounded-xl glass-panel border border-cyan-500/30 text-slate-300 hover:text-neonCyan font-space font-semibold text-sm transition-all">
-                        Check GitHub Repository
-                    </a>
-                </div>
+            <h1 class="font-space font-bold text-3xl sm:text-5xl md:text-6xl tracking-tight text-white leading-tight">
+                Supercharging Engineering with <span class="text-transparent bg-clip-text bg-gradient-to-r from-neonCyan to-cyan-200 glow-text">AI Assistance</span>
+            </h1>
+            <p class="max-w-3xl mx-auto text-sm sm:text-base md:text-lg text-slate-300 font-light leading-relaxed justified-text px-2">
+                Artificial intelligence has fundamentally transformed software engineering. By acting as an intelligent co-pilot, AI empowers developers to write cleaner code, accelerate architectural design, automate tedious debugging routines, and continuously master complex technical domains.
+            </p>
+            <div class="pt-2">
+                <img src="https://images.pexels.com/path-to-placeholder/../photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Artificial Intelligence and Coding Pexels" class="w-full h-56 sm:h-72 object-cover rounded-3xl border border-cyan-500/30 shadow-2xl opacity-85">
+                <span class="block text-[10px] font-space text-neonCyan mt-2">Pexels Cloud Stock: Advanced AI & Neural Visualizations</span>
             </div>
         </section>
+
+        <!-- Content Container with Responsive Spacing -->
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16 pb-20 sm:pb-32">
+
+            <!-- 2. Importance of AI when Learning Coding -->
+            <section id="ai-learning" class="reveal-section glass-panel rounded-3xl p-6 sm:p-10 border border-cyan-500/30 space-y-8">
+                <div class="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
+                    <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-neonCyan font-space font-bold text-lg shrink-0">01</div>
+                    <div>
+                        <h2 class="font-space text-xl sm:text-2xl font-bold text-white">Importance of AI When Learning Coding</h2>
+                        <p class="text-xs font-space text-cyan-400 uppercase tracking-widest mt-1">Accelerating the Mastery Curve</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div class="space-y-4">
+                        <div class="glass-panel p-5 rounded-2xl space-y-2 border border-cyan-500/10">
+                            <h3 class="font-space font-bold text-white text-base flex items-center space-x-2">
+                                <span class="text-neonCyan">▸</span> <span>Instant Concept Clarification</span>
+                            </h3>
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed justified-text">
+                                Beginners often stumble over abstract syntax or confusing compiler messages. AI models explain complex algorithms using customized analogies tailored to the learner's exact skill level.
+                            </p>
+                        </div>
+                        <div class="glass-panel p-5 rounded-2xl space-y-2 border border-cyan-500/10">
+                            <h3 class="font-space font-bold text-white text-base flex items-center space-x-2">
+                                <span class="text-neonCyan">▸</span> <span>Personalized 24/7 Mentorship</span>
+                            </h3>
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed justified-text">
+                                Unlike traditional classrooms, AI tools are available instantly at any hour, providing uninterrupted guidance while working through late-night coding assignments or practice problems.
+                            </p>
+                        </div>
+                        <div class="glass-panel p-5 rounded-2xl space-y-2 border border-cyan-500/10">
+                            <h3 class="font-space font-bold text-white text-base flex items-center space-x-2">
+                                <span class="text-neonCyan">▸</span> <span>Interactive Code Generation</span>
+                            </h3>
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed justified-text">
+                                Learners can request boilerplate code, examine alternative solutions to algorithmic puzzles, and explore best-practice design patterns in real-time.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="relative rounded-2xl overflow-hidden border border-cyan-500/20 shadow-2xl group">
+                        <img src="https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Learning code with AI Pexels" class="w-full h-64 sm:h-72 object-cover group-hover:scale-105 transition-transform duration-500 opacity-85">
+                        <div class="absolute inset-0 bg-gradient-to-t from-cosmicBg via-transparent to-transparent"></div>
+                        <span class="absolute bottom-3 left-3 text-[10px] font-space text-neonCyan bg-panelDark/80 px-2.5 py-1 rounded-full border border-cyan-500/30">Pexels Stock: Developer Learning</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Advanced UI Designing Assistance (HorizonX.so) -->
+            <section id="ui-design" class="reveal-section glass-panel rounded-3xl p-6 sm:p-10 border border-cyan-500/30 space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
+                    <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-neonCyan font-space font-bold text-lg shrink-0">02</div>
+                    <div>
+                        <h2 class="font-space text-xl sm:text-2xl font-bold text-white">Advanced UI Designing Assistance</h2>
+                        <p class="text-xs font-space text-cyan-400 uppercase tracking-widest mt-1">Recommended Platform: HorizonX.so</p>
+                    </div>
+                </div>
+
+                <div class="relative rounded-2xl overflow-hidden border border-cyan-500/20 shadow-xl mb-6">
+                    <img src="https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="UI Design Assistance Pexels" class="w-full h-44 sm:h-52 object-cover opacity-75">
+                    <div class="absolute inset-0 bg-gradient-to-r from-cosmicBg via-cosmicBg/80 to-transparent flex items-center p-5 sm:p-8">
+                        <div class="max-w-lg space-y-2">
+                            <span class="text-[10px] font-space text-neonCyan uppercase tracking-widest bg-cyan-500/10 px-2.5 py-1 rounded border border-cyan-500/30">Design Innovation</span>
+                            <h3 class="font-space text-base sm:text-xl font-bold text-white">Bridging Design & Code Seamlessly</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed justified-text">
+                    Designing modern, accessible, and visually stunning user interfaces requires combining artistic intuition with rigorous layout engineering. <strong class="text-neonCyan">HorizonX.so</strong> stands out as a premier recommended platform offering intelligent UI generation, layout optimizations, and design-system components that bridge the gap between Figma mockups and production-ready frontend code.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-2">
+                    <div class="glass-panel p-6 rounded-2xl space-y-3 border border-cyan-500/10">
+                        <h3 class="font-space font-bold text-white text-base">Automated Layouts</h3>
+                        <p class="text-xs sm:text-sm text-slate-300 justified-text">
+                            Generate responsive grid structures and Tailwind CSS component hierarchies instantly from simple natural language design prompts.
+                        </p>
+                    </div>
+                    <div class="glass-panel p-6 rounded-2xl space-y-3 border border-cyan-500/10">
+                        <h3 class="font-space font-bold text-white text-base">Design Systems</h3>
+                        <p class="text-xs sm:text-sm text-slate-300 justified-text">
+                            Maintain strict visual consistency across applications with cohesive color palettes, typography scales, and accessible contrast ratios.
+                        </p>
+                    </div>
+                    <div class="glass-panel p-6 rounded-2xl space-y-3 border border-cyan-500/10">
+                        <h3 class="font-space font-bold text-white text-base">Production Export</h3>
+                        <p class="text-xs sm:text-sm text-slate-300 justified-text">
+                            Export clean, modular HTML, React, or Vue components directly into your development environment without redundant CSS bloat.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="pt-4 text-center">
+                    <a href="https://horizonx.so/explore" target="_blank" rel="noopener noreferrer" class="inline-flex px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-600 text-slate-950 font-space font-bold text-xs uppercase tracking-wider hover:scale-105 transition-all shadow-lg shadow-cyan-500/20">
+                        Explore HorizonX.so Platform
+                    </a>
+                </div>
+            </section>
+
+            <!-- 4. Importance of Debugging and Continuous Learning -->
+            <section id="debugging" class="reveal-section glass-panel rounded-3xl p-6 sm:p-10 border border-cyan-500/30 space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
+                    <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-neonCyan font-space font-bold text-lg shrink-0">03</div>
+                    <div>
+                        <h2 class="font-space text-xl sm:text-2xl font-bold text-white">Importance of Debugging & Continuous Learning</h2>
+                        <p class="text-xs font-space text-cyan-400 uppercase tracking-widest mt-1">Refining Logic Through Resilience</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div class="space-y-4">
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed justified-text">
+                            Writing code is only half the battle; discovering why it fails and mastering systematic debugging is where true engineering competence is forged. AI tools act as expert microscopes for codebases, instantly highlighting logical flaws, memory leaks, and performance bottlenecks.
+                        </p>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed justified-text">
+                            Furthermore, technology evolves at an unprecedented pace. Continuous learning supported by AI ensures that developers remain adaptable, quickly absorbing new frameworks, security protocols, and paradigms without falling behind industry standards.
+                        </p>
+                    </div>
+                    <div class="relative rounded-2xl overflow-hidden border border-cyan-500/20 shadow-xl">
+                        <img src="https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Debugging code Pexels" class="w-full h-60 object-cover opacity-80">
+                        <span class="absolute bottom-3 left-3 text-[10px] font-space text-neonCyan bg-panelDark/80 px-2.5 py-1 rounded-full border border-cyan-500/30">Pexels Stock: Code Troubleshooting</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. How to Utilize AI Precisely -->
+            <section id="precise-ai" class="reveal-section glass-panel rounded-3xl p-6 sm:p-10 border border-cyan-500/30 space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
+                    <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-neonCyan font-space font-bold text-lg shrink-0">04</div>
+                    <div>
+                        <h2 class="font-space text-xl sm:text-2xl font-bold text-white">How to Utilize AI Precisely</h2>
+                        <p class="text-xs font-space text-cyan-400 uppercase tracking-widest mt-1">Mastering Effective Prompt Engineering</p>
+                    </div>
+                </div>
+
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed justified-text">
+                    The quality of an AI's response depends directly on the precision of the prompt provided. To maximize productivity and avoid generic or hallucinated output, developers should adhere to structured prompt engineering frameworks.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-2">
+                    <div class="glass-panel p-6 rounded-2xl space-y-3 border border-cyan-500/10">
+                        <div class="text-neonCyan font-space font-bold text-base">1. Define Persona</div>
+                        <p class="text-xs sm:text-sm text-slate-300 justified-text">
+                            Instruct the AI to act as a specialized expert, such as a senior systems architect or veteran security auditor.
+                        </p>
+                    </div>
+                    <div class="glass-panel p-6 rounded-2xl space-y-3 border border-cyan-500/10">
+                        <div class="text-neonCyan font-space font-bold text-base">2. Provide Context</div>
+                        <p class="text-xs sm:text-sm text-slate-300 justified-text">
+                            Include relevant tech stacks, framework versions, and specific constraints your project operates under.
+                        </p>
+                    </div>
+                    <div class="glass-panel p-6 rounded-2xl space-y-3 border border-cyan-500/10">
+                        <div class="text-neonCyan font-space font-bold text-base">3. Clear Objectives</div>
+                        <p class="text-xs sm:text-sm text-slate-300 justified-text">
+                            State the exact desired output—whether it is a refactored function, unit tests, or a step-by-step debugging explanation.
+                        </p>
+                    </div>
+                    <div class="glass-panel p-6 rounded-2xl space-y-3 border border-cyan-500/10">
+                        <div class="text-neonCyan font-space font-bold text-base">4. Iterate & Verify</div>
+                        <p class="text-xs sm:text-sm text-slate-300 justified-text">
+                            Critique the generated solution, test edge cases, and ask follow-up questions to refine performance and security.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. Recommended Platforms for AI Assistance -->
+            <section id="ai-platforms" class="reveal-section glass-panel rounded-3xl p-6 sm:p-10 border border-cyan-500/30 space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
+                    <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-neonCyan font-space font-bold text-lg shrink-0">05</div>
+                    <div>
+                        <h2 class="font-space text-xl sm:text-2xl font-bold text-white">Recommended Platforms for AI Assistance</h2>
+                        <p class="text-xs font-space text-cyan-400 uppercase tracking-widest mt-1">Industry-Leading Developer Co-Pilots</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="glass-panel p-6 rounded-2xl space-y-4 border border-cyan-500/10 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <h3 class="font-space font-bold text-white text-lg">Claude AI</h3>
+                                <span class="text-[10px] px-2 py-0.5 rounded bg-cyan-500/10 text-neonCyan font-space">Anthropic</span>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-300 justified-text">
+                                Renowned for exceptional code comprehension, massive context windows, and nuanced architectural reasoning, making it ideal for deep debugging.
+                            </p>
+                        </div>
+                        <a href="https://claude.ai" target="_blank" rel="noopener noreferrer" class="inline-block text-center w-full py-2 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-neonCyan font-space font-bold text-xs uppercase tracking-wider border border-cyan-500/30 transition-colors">
+                            Launch Claude AI
+                        </a>
+                    </div>
+
+                    <div class="glass-panel p-6 rounded-2xl space-y-4 border border-cyan-500/10 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <h3 class="font-space font-bold text-white text-lg">Google Gemini</h3>
+                                <span class="text-[10px] px-2 py-0.5 rounded bg-cyan-500/10 text-neonCyan font-space">Google</span>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-300 justified-text">
+                                Powered by advanced multi-modal capabilities, rapid code generation, and seamless integration with web search data and developer tools.
+                            </p>
+                        </div>
+                        <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer" class="inline-block text-center w-full py-2 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-neonCyan font-space font-bold text-xs uppercase tracking-wider border border-cyan-500/30 transition-colors">
+                            Launch Google Gemini
+                        </a>
+                    </div>
+
+                    <div class="glass-panel p-6 rounded-2xl space-y-4 border border-cyan-500/10 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <h3 class="font-space font-bold text-white text-lg">Microsoft Copilot</h3>
+                                <span class="text-[10px] px-2 py-0.5 rounded bg-cyan-500/10 text-neonCyan font-space"> Microsoft</span>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-300 justified-text">
+                                Deeply integrated directly into VS Code and GitHub, offering inline code completions, automated test creation, and workspace awareness.
+                            </p>
+                        </div>
+                        <a href="https://copilot.microsoft.com" target="_blank" rel="noopener noreferrer" class="inline-block text-center w-full py-2 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-neonCyan font-space font-bold text-xs uppercase tracking-wider border border-cyan-500/30 transition-colors">
+                            Launch MS Copilot
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. Recommended Platforms for Learning -->
+            <section id="learning-platforms" class="reveal-section glass-panel rounded-3xl p-6 sm:p-10 border border-cyan-500/30 space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
+                    <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-neonCyan font-space font-bold text-lg shrink-0">06</div>
+                    <div>
+                        <h2 class="font-space text-xl sm:text-2xl font-bold text-white">Recommended Platforms for Learning</h2>
+                        <p class="text-xs font-space text-cyan-400 uppercase tracking-widest mt-1">Elite Training Academies & Guides</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="glass-panel p-6 rounded-2xl space-y-4 border border-cyan-500/10 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <h3 class="font-space font-bold text-white text-lg">You Know Who Academy</h3>
+                                <span class="text-[10px] px-2 py-0.5 rounded bg-cyan-500/10 text-neonCyan font-space">CP Academy</span>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-300 justified-text">
+                                A premier competitive programming and algorithmic training platform designed to take students from fundamental data structures to advanced problem-solving mastery.
+                            </p>
+                        </div>
+                        <a href="https://youkn0wwho.academy/" target="_blank" rel="noopener noreferrer" class="inline-block text-center w-full py-2.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-neonCyan font-space font-bold text-xs uppercase tracking-wider border border-cyan-500/30 transition-colors">
+                            Visit You Know Who Academy
+                        </a>
+                    </div>
+
+                    <div class="glass-panel p-6 rounded-2xl space-y-4 border border-cyan-500/10 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <h3 class="font-space font-bold text-white text-lg">USACO Guide</h3>
+                                <span class="text-[10px] px-2 py-0.5 rounded bg-cyan-500/10 text-neonCyan font-space">Olympiad Training</span>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-300 justified-text">
+                                The gold standard free competitive programming curriculum covering Bronze, Silver, Gold, and Platinum divisions with curated problem sets and tutorials.
+                            </p>
+                        </div>
+                        <a href="https://usaco.guide" target="_blank" rel="noopener noreferrer" class="inline-block text-center w-full py-2.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-neonCyan font-space font-bold text-xs uppercase tracking-wider border border-cyan-500/30 transition-colors">
+                            Visit USACO Guide
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. PDF Downloading Section: AI Assistance.pdf -->
+            <section id="document-download" class="reveal-section space-y-6">
+                <div class="space-y-2">
+                    <div class="flex items-center space-x-3">
+                        <span class="font-space font-bold text-2xl sm:text-3xl text-neonCyan">07.</span>
+                        <h2 class="font-space font-bold text-2xl sm:text-3xl text-white tracking-tight">Official Curriculum Document Download</h2>
+                    </div>
+                    <p class="text-slate-300 text-sm sm:text-base font-light pl-9">
+                        Access the complete reference guide directly from the root repository folder.
+                    </p>
+                </div>
+
+                <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-cyan-500/30 relative overflow-hidden">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
+                        <div class="space-y-3 max-w-xl">
+                            <span class="inline-block px-3 py-1 rounded-full text-xs font-space text-neonCyan bg-cyan-500/10 border border-cyan-500/30">
+                                Root Folder Document
+                            </span>
+                            <h3 class="font-space font-bold text-xl sm:text-2xl text-white tracking-wide">
+                                AI Assistance.pdf
+                            </h3>
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed justified-text">
+                                Download the comprehensive reference manual covering prompt engineering templates, AI assistant workflows, UI design integration, and debugging strategies.
+                            </p>
+                        </div>
+                        <div class="shrink-0 flex items-center">
+                            <a href="AI Assistance.pdf" download="AI Assistance.pdf" class="inline-flex items-center justify-center space-x-3 px-6 py-4 rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-600 text-slate-950 font-space font-bold text-sm tracking-wide shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 hover:scale-[1.02] transition-all duration-300 w-full md:w-auto">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                                </svg>
+                                <span class="text-white">DOWNLOAD PDF</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
 
     </main>
 
@@ -364,6 +656,28 @@
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+
+    <!-- GSAP ScrollTrigger Animations -->
+    <script>
+        document.addEventListener("DOMContentLoaded", (event) => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            const sections = document.querySelectorAll('.reveal-section');
+            sections.forEach((section) => {
+                gsap.to(section, {
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top 88%",
+                        toggleActions: "play none none none"
+                    },
+                    opacity: 1,
+                    y: 0,
+                    duration: 1.0,
+                    ease: "power3.out"
+                });
+            });
         });
     </script>
 </body>

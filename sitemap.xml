@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://sitemaps.org">
   <url>
-    <loc>https://github.io</loc>
+    <loc>https://rayaantasnim.github.io/Olympiad-Edge/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://github.ioSyllabus.html</loc>
+    <loc>https://github.io</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://github.ioWhy.html</loc>
+    <loc>https://github.io</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://github.ioFAQ.html</loc>
+    <loc>https://github.io</loc>
     <priority>0.8</priority>
   </url>
 </urlset>

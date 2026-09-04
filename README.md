@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="https://raw.githubusercontent.com/rayaantasnim/Olympiad-Edge/main/assets/banner.png" alt="Olympiad Edge Banner" width="100%" />
+  <img src="Logo.jpg" alt="Olympiad Edge Banner" width="100%" />
 
   # Olympiad Edge
 
